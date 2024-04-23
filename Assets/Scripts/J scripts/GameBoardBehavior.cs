@@ -17,7 +17,7 @@ public class GameBoardBehaviour : MonoBehaviour
     public float manuelDamp = 10f;
     public float gyroDamp = 5f;
 
-    public Vector3 manuelInput;
+    [HideInInspector] public Vector3 manuelInput;
 
     // Start is called before the first frame update
     void Start()
@@ -70,9 +70,9 @@ public class GameBoardBehaviour : MonoBehaviour
         float x = 0, y = 0, z = 0;
         Vector3 gyro = Input.gyro.attitude.eulerAngles;
 
-        x = -gyro.x;
+        x = gyro.y;
         y = 0;
-        z = -gyro.y;
+        z = -gyro.x;
 
         Vector3 inputGyro = new Vector3(x, y, z);
 

@@ -54,30 +54,42 @@ public class Calibration : MonoBehaviour
 
     private bool InTarget()
     {
-        Vector3 gyro = gameBehaviour.manuelInput;
+        
         //Vector3 gyro = Input.gyro.attitude.eulerAngles;
         float x, y;
         //get gyro x 0 to 20 transform target between 0 to 10
-
-        x = gyro.z;
-        y = gyro.x;
-
-        point.GetComponent<RectTransform>().localPosition = new Vector3(x, y, 0);
+        
 
         if (!Input.gyro.enabled)
         {
+            Vector3 gyro = gameBehaviour.manuelInput;
+
+            x = gyro.z;
+            y = gyro.x;
+            point.GetComponent<RectTransform>().localPosition = new Vector3(x, y, 0);
+
             if (x > -20 && x < 20 && y > -20 && y < 20)
+            {
                 return true;
+            }
             else
                 return false;
         }
         else
         {
+            x = Input.gyro.attitude.eulerAngles.y;
+            y = Input.gyro.attitude.eulerAngles.x;
+            point.GetComponent<RectTransform>().localPosition = new Vector3(x, y, 0);
+
             if (x > 340 && x < 20 && y > 340 && y < 20)
+            {
                 return true;
+            }
             else
                 return false;
         }
+
+        
 
     }
 
