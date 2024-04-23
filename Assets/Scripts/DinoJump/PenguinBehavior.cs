@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PenguinBehavior : MonoBehaviour
 {
-    [SerializeField] private float penguinSpeed = 5f;
-    [SerializeField] private float penguinRotaionSpeed = 5f;
+    public float penguinSpeed;
+    public float penguinRotaionSpeed;
+    public float penguinSize;
 
     void Update()
     {

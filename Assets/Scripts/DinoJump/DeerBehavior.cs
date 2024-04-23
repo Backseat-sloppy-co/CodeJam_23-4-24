@@ -37,5 +37,15 @@ public class DeerBehavior : MonoBehaviour
         {
             rb.velocity = Vector3.up * jumpForce;
         }
+
+  
     }
+   void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag("Penguin"))
+            {
+                Destroy(collision.gameObject);
+                Debug.Log("Penguin Destroyed!");
+            }
+        }
 }
