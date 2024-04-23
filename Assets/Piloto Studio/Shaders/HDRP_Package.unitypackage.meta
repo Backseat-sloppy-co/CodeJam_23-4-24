@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Piloto Studio/Shaders/HDRP_Package.unitypackage.meta
 guid: e9b989c13a6f00144951f5458e39bde2
+========
+guid: ec3a6b3f151ed984bb5f8214e6a703a7
+folderAsset: yes
+>>>>>>>> 89c2c2c73466beedbf7bc7d8e195324f1ef73a8c:Assets/Models.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Piloto Studio/Shaders/PreviewScene.unity.meta
 guid: e00a0d34dfb90a140ba8d3a9181bfca3
+========
+guid: ef5979cc48a4b804498d5c36c4b5772e
+folderAsset: yes
+>>>>>>>> 89c2c2c73466beedbf7bc7d8e195324f1ef73a8c:Assets/Materials/J_materials.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
