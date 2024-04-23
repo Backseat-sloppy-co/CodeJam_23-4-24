@@ -189,7 +189,7 @@ public class Simulation : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         // Add children GameObjects to particles list
