@@ -26,6 +26,7 @@ public class TargetBehavior : MonoBehaviour
 
     private void Start()
     {
+
         for (int i = 0; i < count; i++)
         {
             
@@ -34,7 +35,7 @@ public class TargetBehavior : MonoBehaviour
             targets.Add(new Target(target));
             
         }
-        
+        targets[Random.Range(0, targets.Count)].isTarget = true;
     }
     private void Update()
     {
@@ -53,7 +54,7 @@ public class TargetBehavior : MonoBehaviour
                         if (target.target == hit.collider.gameObject)
                         {
                             Debug.Log("Target is found");
-                            if(target.isTarget == false)
+                            if(target.isTarget == true)
                             {
                                 target.isTarget = false;
                                 targets.Remove(target);
@@ -62,7 +63,7 @@ public class TargetBehavior : MonoBehaviour
                                 var random = Random.Range(0, targets.Count);
                                 targets[random].isTarget = true;
                                 //call animation
-                               
+                               Debug.Log("New target is set");
                             }
                             break;
                         }
