@@ -24,6 +24,7 @@ public class TargetBehavior : MonoBehaviour
     public int count = 10;
     public GameObject weapon;
     private float firerate = 0.05f;
+    
   
 
     private void Start()
@@ -105,6 +106,7 @@ public class TargetBehavior : MonoBehaviour
     {
         //play shooting animation
         weapon.GetComponent<Animator>().SetBool("isShoot", true);
+        FindObjectOfType<AudioManager>().Play("Shoot");
         yield return new WaitForSeconds(firerate);
         weapon.GetComponent<Animator>().SetBool("isShoot", false);
     }
