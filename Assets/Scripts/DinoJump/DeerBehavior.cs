@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AdaptivePerformance;
 
 public class DeerBehavior : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class DeerBehavior : MonoBehaviour
     private bool isGrounded;
     private CapsuleCollider col;
 
+    public int lifeCounter = 3;
+
+    private Quaternion rotation = Quaternion.Euler(-0.557f, 97.747f, -0.003f);
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,6 +42,15 @@ public class DeerBehavior : MonoBehaviour
             rb.velocity = Vector3.up * jumpForce;
         }
 
+        // force the deer to be at the same z and x position
+        transform.position = new Vector3(0, transform.position.y, 0);
+        transform.rotation = rotation;
+
+        if (lifeCounter == 0)
+        {
+            Debug.Log("Game Over!");
+            Time.timeScale = 0;
+        }
   
     }
    void OnCollisionEnter(Collision collision)
@@ -46,6 +59,8 @@ public class DeerBehavior : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 Debug.Log("Penguin Destroyed!");
+            lifeCounter --;
+
             }
         }
 }
