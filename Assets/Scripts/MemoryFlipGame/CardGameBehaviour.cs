@@ -8,7 +8,7 @@ public class CardGameBehaviour : MonoBehaviour
 {
     [SerializeField] private Button button;
     [SerializeField] private Sprite cardBack;
-    [SerializeField] private Sprite cardFace;
+    [SerializeField] private Sprite[] cardFace;
     [SerializeField] private AssignCards assignCards;
     
     private bool isFlipped = false;
@@ -16,11 +16,16 @@ public class CardGameBehaviour : MonoBehaviour
     private int faceIndex;
     private int amountofCardsFlipped = 0;
 
+    public void Start()
+    {
+        button.image.sprite = cardBack;
+    }
+
     public void FlipCard()
     {
         if (!isFlipped && !isMatched)
         {
-            button.image.sprite = cardFace;
+            button.image.sprite = cardFace[faceIndex];
             isFlipped = true;
         }
         else if (isFlipped && !isMatched)
@@ -44,6 +49,10 @@ public class CardGameBehaviour : MonoBehaviour
         return faceIndex;
     }
 
+    public void AssignFace(int index)
+    {
+        faceIndex = index;
+    }
     public void Unflip()
     {
         button.image.sprite = cardBack;
