@@ -7,36 +7,43 @@ public class BirdMovement : MonoBehaviour
 {
     public float jumpForce = 10f;
     public float gravity = 1f;
-
     public TMP_Text text;
+    public float upperLimit = 6f;
+    public float lowerLimit = -4.25f;
 
+    private float magnitude = 0f;
+    private Rigidbody rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     private void Update()
     {
-        Vector3 dir = Vector3.zero;
+        if(Input.GetMouseButtonDown(0))
+        {
+            //transform.Translate(Vector3.up * jumpForce);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
 
-        // we assume that device is held parallel to the ground
-        // and Home button is in the right hand
+        magnitude = Input.acceleration.magnitude;
+        magnitude = Mathf.Clamp(magnitude, 0f, 1f);
+        //magnitude *= Time.deltaTime;
 
-        // remap device acceleration axis to game coordinates:
-        //  1) XY plane of the device is mapped onto XZ plane
-        //  2) rotated 90 degrees around Y axis
-        dir.x = -Input.acceleration.y;
-        dir.z = Input.acceleration.x;
+        
+        transform.Translate(Vector3.up * jumpForce * magnitude);
+        text.text = "" + magnitude;
 
-        // clamp acceleration vector to unit sphere
-        if (dir.sqrMagnitude > 1)
-            dir.Normalize();
+        //transform.Translate(Vector3.down * gravity * Time.deltaTime);
 
-        // Make it move 10 meters per second instead of 10 meters per frame...
-        dir *= Time.deltaTime;
-
-        // Move object
-        transform.Translate(dir * jumpForce);
-        text.text = "X: " + dir.x + " Y: " + dir.y + " Z: " + dir.z;
-    }
-
-    private void Jump()
-    {
-        //bird.position += Vector3.up * jumpForce;
+        if(transform.position.y > upperLimit)
+        {
+            transform.position = new Vector3(transform.position.x, upperLimit, transform.position.z);
+            rb.velocity = Vector3.zero;
+        }else if(transform.position.y < lowerLimit)
+        {
+            transform.position = new Vector3(transform.position.x, lowerLimit, transform.position.z);
+            rb.velocity = Vector3.zero;
+        }
     }
 }
