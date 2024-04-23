@@ -20,6 +20,7 @@ public class TargetBehavior : MonoBehaviour
     public GameObject prefab;
     private List<Target> targets = new List<Target>();
     public int count = 10;
+  
 
     private void Start()
     {
