@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   position: {x: -0.5, y: -1.5, z: 10}
   prefab: {fileID: 6068678238127080558, guid: 53feec89e845e5249abcc720ca347584, type: 3}
-  count: 1
+  count: 2
 --- !u!4 &1070490565
 Transform:
   m_ObjectHideFlags: 0

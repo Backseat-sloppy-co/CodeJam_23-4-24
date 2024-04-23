@@ -57,7 +57,8 @@ public class TargetBehavior : MonoBehaviour
                                 target.isTarget = false;
                                 targets.Remove(target);
                                 Debug.Log("Target is hit");
-                                //call animation
+                                Animator anim = target.target.GetComponent<Animator>();
+                                anim.SetBool("isHit", true);
                                 var random = Random.Range(0, targets.Count);
                                 targets[random].isTarget = true;
                                 //call animation
