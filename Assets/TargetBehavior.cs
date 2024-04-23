@@ -6,17 +6,14 @@ using UnityEngine;
 
 class Target
 {
-    //public Vector3 position;
     public GameObject target;
     public bool isTarget;
-
     public Target(GameObject target)
     {
         this.target = target;
         isTarget = false;
     }
 }
-
 public class TargetBehavior : MonoBehaviour
 {
     [SerializeField] private Vector3 position;
