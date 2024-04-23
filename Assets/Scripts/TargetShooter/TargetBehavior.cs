@@ -58,6 +58,7 @@ public class TargetBehavior : MonoBehaviour
             {
                 if(hit.collider.gameObject.CompareTag("Target"))
                 {
+                    FindObjectOfType<AudioManager>().Play("Hitmarker");
                     Debug.Log("Target is clicked");
                     foreach (var target in targets)
                     {
