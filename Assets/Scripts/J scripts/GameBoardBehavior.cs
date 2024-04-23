@@ -10,8 +10,11 @@ public class GameBoardBehaviour : MonoBehaviour
 
     public float damp = 0.5f;
     public float InputSpeed = 1f;
+    public float stableThreshold = 0.1f;
 
     private Vector3 manuelInput = new Vector3(0, 0, 0);
+
+    private bool isStable = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,11 +39,25 @@ public class GameBoardBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //make a check to see if device is facing flat up
+        //if (Input.gyro.enabled)
+        //{
+        //    if (Input.gyro.attitude.x < stableThreshold & Input.gyro.attitude.x > -stableThreshold & 
+        //        Input.gyro.attitude.y < stableThreshold & Input.gyro.attitude.y > -stableThreshold)
+        //    {
+        //        isStable = true;
+        //    }
+        //    else
+        //    {
+        //        isStable = false;
+        //    }
+        //}
+
         if (Input.gyro.enabled) {
             RuntimeGyroBoard();
             gyroText.text = "Gyro: " + Input.gyro.attitude;
         }
-        else
+        else if (!Input.gyro.enabled)
         {
             RuntimeInputBoard();
             gyroText.text = "Gyro: " + manuelInput;
@@ -64,11 +81,11 @@ public class GameBoardBehaviour : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            manuelInput.y += 0.1f * InputSpeed;
+            manuelInput.z += 0.1f * InputSpeed;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            manuelInput.y += -0.1f * InputSpeed;
+            manuelInput.z += -0.1f * InputSpeed;
         }
 
         gameBoard.transform.rotation = Quaternion.Slerp(gameBoard.transform.rotation, Quaternion.Euler(manuelInput), damp);
