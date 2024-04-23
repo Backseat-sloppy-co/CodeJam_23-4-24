@@ -37,7 +37,9 @@ public class TargetBehavior : MonoBehaviour
          
 
         }
-        targets[Random.Range(0, targets.Count)].isTarget = true;
+        var _taregt = targets[Random.Range(0, targets.Count)];
+        _taregt.isTarget = true;
+        _taregt.target.GetComponent<Animator>().SetBool("openUp", true);
       
     }
     private void Update()
@@ -67,10 +69,11 @@ public class TargetBehavior : MonoBehaviour
                                 
                                anim.SetBool("isHit", true);
 
-                                var random = Random.Range(0, targets.Count);
-                                targets[random].isTarget = true;
+                                var _taregt = targets[Random.Range(0, targets.Count)];
+                                _taregt.isTarget = true;
+                                _taregt.target.GetComponent<Animator>().SetBool("openUp", true);
                                 //call animation
-                               Debug.Log("New target is set");
+                                Debug.Log("New target is set");
                             }
                             break;
                         }
