@@ -22,6 +22,8 @@ public class TargetBehavior : MonoBehaviour
     private List<Target> targets = new List<Target>();
     public List<Transform> targetLocation = new List<Transform>();
     public int count = 10;
+    public GameObject weapon;
+    private float firerate = 0.05f;
   
 
     private void Start()
@@ -46,9 +48,11 @@ public class TargetBehavior : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            StartCoroutine(Shoot());
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.Log("Mouse is clicked");
+
             if (Physics.Raycast(ray, out hit))
             {
                 if(hit.collider.gameObject.CompareTag("Target"))
@@ -95,5 +99,13 @@ public class TargetBehavior : MonoBehaviour
             }
         }
         return true;
+    }
+    // enumerator courantine that waits for a few seconds
+    IEnumerator Shoot()
+    {
+        //play shooting animation
+        weapon.GetComponent<Animator>().SetBool("isShoot", true);
+        yield return new WaitForSeconds(firerate);
+        weapon.GetComponent<Animator>().SetBool("isShoot", false);
     }
 }

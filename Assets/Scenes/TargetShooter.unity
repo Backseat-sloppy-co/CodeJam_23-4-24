@@ -441,6 +441,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1381919903}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &477154666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4205521026231025682, guid: f7a69565ab2ff984789da792b0969f4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1028725134}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &484909540
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,25 +951,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2404358595429818823, guid: f7a69565ab2ff984789da792b0969f4b,
+    - target: {fileID: 2690918498464729498, guid: f7a69565ab2ff984789da792b0969f4b,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b8e4383b67386ea42b9852c934ac4c5c, type: 2}
-    - target: {fileID: 3537247361575131816, guid: f7a69565ab2ff984789da792b0969f4b,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 3537247361575131816, guid: f7a69565ab2ff984789da792b0969f4b,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.77
-      objectReference: {fileID: 0}
-    - target: {fileID: 3537247361575131816, guid: f7a69565ab2ff984789da792b0969f4b,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.77
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3537247361575131816, guid: f7a69565ab2ff984789da792b0969f4b,
         type: 3}
@@ -1014,11 +1005,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3537247361575131816, guid: f7a69565ab2ff984789da792b0969f4b,
-        type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4205521026231025682, guid: f7a69565ab2ff984789da792b0969f4b,
         type: 3}
@@ -1090,7 +1076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a98c195b3a60a6419347854be7346ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
   prefab: {fileID: 6068678238127080558, guid: 53feec89e845e5249abcc720ca347584, type: 3}
   targetLocation:
   - {fileID: 1041026045}
@@ -1104,6 +1089,7 @@ MonoBehaviour:
   - {fileID: 1628760335}
   - {fileID: 151326738}
   count: 10
+  weapon: {fileID: 477154666}
 --- !u!4 &1070490565
 Transform:
   m_ObjectHideFlags: 0
