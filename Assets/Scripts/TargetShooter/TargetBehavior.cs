@@ -17,7 +17,7 @@ class Target
 }
 public class TargetBehavior : MonoBehaviour
 {
-    [SerializeField] private Vector3 position;
+
     public GameObject prefab;
     private List<Target> targets = new List<Target>();
     public List<Transform> targetLocation = new List<Transform>();
@@ -65,14 +65,11 @@ public class TargetBehavior : MonoBehaviour
                                 target.isTarget = false;
                                 targets.Remove(target);
                                 Debug.Log("Target is hit");
-
-                                
-                               anim.SetBool("isHit", true);
+                                anim.SetBool("isHit", true);
 
                                 var _target = targets[Random.Range(0, targets.Count)];
                                 _target.isTarget = true;
                                 _target.target.GetComponent<Animator>().SetBool("openUp", true);
-                                //call animation
                                 Debug.Log("New target is set");
                             }
                             break;
@@ -81,5 +78,22 @@ public class TargetBehavior : MonoBehaviour
                 }
             }
         }
+        if (IsAllTargetsHit())
+        {
+            Debug.Log("All targets are down");
+            //change to next level
+        }
+    }
+    // this method checks if all targets are hit
+    public bool IsAllTargetsHit()
+    {
+        foreach (var target in targets)
+        {
+            if (target.isTarget == true)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
