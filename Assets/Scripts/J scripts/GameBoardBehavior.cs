@@ -7,13 +7,13 @@ public class GameBoardBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject gameBoard;
     [SerializeField] private TMP_Text gyroText;
+    [SerializeField] private Transform cameraPivot;
 
     public float damp = 0.5f;
     public float InputSpeed = 1f;
     public float stableThreshold = 0.1f;
 
     private Vector3 manuelInput = new Vector3(0, 0, 0);
-
     private bool isStable = false;
 
     // Start is called before the first frame update
@@ -23,6 +23,7 @@ public class GameBoardBehaviour : MonoBehaviour
         {
             Input.gyro.enabled = true;
             Debug.Log("Gyro Enabled");
+            Camera.main.transform.SetParent(cameraPivot);
         }
         else
         {
@@ -61,6 +62,12 @@ public class GameBoardBehaviour : MonoBehaviour
         {
             RuntimeInputBoard();
             gyroText.text = "Gyro: " + manuelInput;
+        }
+
+        if (Input.GetKey(KeyCode.Space))
+        {
+            gameBoard.transform.rotation = Quaternion.Euler(0, 0, 0);
+            manuelInput = new Vector3(0, 0, 0);
         }
     }
 
