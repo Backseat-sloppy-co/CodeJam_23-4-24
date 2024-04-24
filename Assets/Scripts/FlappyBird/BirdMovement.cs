@@ -9,7 +9,7 @@ public class BirdMovement : MonoBehaviour
     public TMP_Text text;
     public float upperLimit = 6f;
     public float lowerLimit = -4.25f;
-    private float intTime;
+    private float time;
     private Rigidbody rb;
 
     public GameObject deathPrefab;
@@ -26,9 +26,9 @@ public class BirdMovement : MonoBehaviour
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
-       intTime += Time.deltaTime;
-        var intFloat = (int)intTime;
-        text.text = intFloat.ToString();
+       time += Time.deltaTime;
+        var intTime = (int)time;
+        text.text = intTime.ToString();
 
         if(transform.position.y > upperLimit)
         {
