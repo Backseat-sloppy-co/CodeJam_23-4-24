@@ -30,7 +30,6 @@ public class TargetBehavior : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<AudioManager>().Play("Beep");
         for (int i = 0; i < count; i++)
         {
             
@@ -44,7 +43,7 @@ public class TargetBehavior : MonoBehaviour
         var _target = targets[UnityEngine.Random.Range(0, targets.Count)];
         _target.isTarget = true;
         _target.target.GetComponent<Animator>().SetBool("openUp", true);
-      
+       FindObjectOfType<AudioManager>().Play("Beep");
     }
     private void Update()
     {
@@ -63,7 +62,7 @@ public class TargetBehavior : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if(hit.collider.gameObject.CompareTag("Target"))
+                if(hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     FindObjectOfType<AudioManager>().Play("Hitmarker");
                     Debug.Log("Target is clicked");
@@ -93,11 +92,10 @@ public class TargetBehavior : MonoBehaviour
         }
         if (IsAllTargetsHit())
         {
-            FindObjectOfType<AudioManager>().Play("Beep");
+           FindObjectOfType<AudioManager>().Play("Beep");
             isWin = true;
             Debug.Log("All targets have been hit in " + time + " secounds");
         
-            //play sound
             //maybe display win message
             //change to next level after coroutine
         }
