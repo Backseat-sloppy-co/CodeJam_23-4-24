@@ -24,6 +24,13 @@ public class MainMenuBehaviour : MonoBehaviour
 
     private void Start()
     {
+        GameManager.instance.sceneNames.Clear();
+
+        foreach (var gameElement in gameElements)
+        {
+            GameManager.instance.sceneNames.Add(gameElement.sceneName);
+        }
+
         playButton.onClick.AddListener(Play);
         selectButton.onClick.AddListener(Select);
         cancelButton.onClick.AddListener(Cancel);
