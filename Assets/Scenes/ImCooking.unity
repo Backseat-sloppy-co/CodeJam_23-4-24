@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.11619598, g: 0.42412096, b: 0.7301295, a: 1}
+  m_IndirectSpecularColor: {r: 0.11610918, g: 0.42396814, b: 0.7300174, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1129,6 +1129,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beef Bone Piece
       objectReference: {fileID: 0}
+    - target: {fileID: 686501958108007064, guid: 84dba5de384b6b8449cbaef85beace80,
+        type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2138,7 +2143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cd9007340f6e94fb40046c0da60872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steak: {fileID: 964163565}
   pan: {fileID: 783295058}
   materialCooked: {fileID: 2100000, guid: be24f14357444a5448e4f1f53a25f3a2, type: 2}
   materialBurnt: {fileID: 2100000, guid: 3e29a0b329ddf9b45aa8bf6e57a7c691, type: 2}
@@ -3499,7 +3503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56cd9007340f6e94fb40046c0da60872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steak: {fileID: 964163565}
   pan: {fileID: 783295058}
   materialCooked: {fileID: 0}
   materialBurnt: {fileID: 0}
