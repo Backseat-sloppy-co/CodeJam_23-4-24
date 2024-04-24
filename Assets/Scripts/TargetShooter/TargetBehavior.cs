@@ -46,6 +46,7 @@ public class TargetBehavior : MonoBehaviour
         _target.isTarget = true;
         _target.target.GetComponent<Animator>().SetBool("openUp", true);
        FindObjectOfType<AudioManager>().Play("Beep");
+       FindObjectOfType<AudioManager>().Play("Flyby");
     }
     private void Update()
     {
