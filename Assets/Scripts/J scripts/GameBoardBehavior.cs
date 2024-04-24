@@ -7,10 +7,10 @@ public class GameBoardBehaviour : MonoBehaviour
     [Header("ref")]
     [SerializeField] private GameObject gameBoard;
     [SerializeField] private TMP_Text gyroText;
-    [SerializeField] private Transform cameraPivot;
     [SerializeField] private Button reset;
-    [SerializeField] private GameObject ball;
     [SerializeField] private GameObject gizmo;
+    private GameObject ball;
+    public GameObject ballPrefab;
 
     [Header("values")]
     public float InputSpeed = 1f;
@@ -18,11 +18,14 @@ public class GameBoardBehaviour : MonoBehaviour
     public float gyroDamp = 5f;
 
     [HideInInspector] public Vector3 manuelInput;
-
+    [HideInInspector] public GameLogic gameLogic;
+    
     // Start is called before the first frame update
     void Start()
     {
         reset.onClick.AddListener(resetBoard);
+
+        gameLogic = GetComponent<GameLogic>();
 
         if (Application.platform == RuntimePlatform.Android)
         {
@@ -37,12 +40,14 @@ public class GameBoardBehaviour : MonoBehaviour
         }
     }
 
-    private void resetBoard()
+    public void resetBoard()
     {
-        GameObject.Destroy(ball);
-        ball = Instantiate(ball, cameraPivot.position, Quaternion.identity);
+        Destroy(ball);
+        ball = Instantiate(ballPrefab, cameraPivot.position, Quaternion.identity);
         ball.GetComponent<Rigidbody>().sleepThreshold = 0.0f;
-        
+
+        gameLogic.ball = ball;
+
     }
 
     private void FixedUpdate()
