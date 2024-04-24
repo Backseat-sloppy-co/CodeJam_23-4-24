@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+<<<<<<< HEAD
   - Penguin
+=======
+  - Enemy
+>>>>>>> main
   layers:
   - Default
   - TransparentFX
