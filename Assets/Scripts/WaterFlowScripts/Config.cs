@@ -17,15 +17,15 @@ public class Config : MonoBehaviour
     public static float WALL_POS = 0.08f; // Position adjustment for particles that are too close to the walls
 
     // Physics parameters
-    public static float G = 0.02f * 1f;  // Acceleration of gravity
-    public static float SPACING = 0.08f;  // Spacing between particles, used to calculate pressure
+    public static float G = 0.02f * 0.25f;  // Acceleration of gravity
+    public static float SPACING = 0.08f; //0.08f;  // Spacing between particles, used to calculate pressure
     public static float K = SPACING / 1000.0f;  // Pressure factor
     public static float K_NEAR = K * 10f;  // Near pressure factor, pressure when particles are close to each other
     // Default density, will be compared to local density to calculate pressure
     public static float REST_DENSITY = 3.0f;
     // Neighbour radius, if the distance between two particles is less than R, they are neighbours
     public static float R = SPACING * 1.25f;
-    public static float SIGMA = 0.2f;  // Viscosity factor
+    public static float SIGMA = 1f;//0.2f;  // Viscosity factor
     public static float MAX_VEL = 0.25f;  // Maximum velocity of particles, used to avoid instability
     // Wall constraints factor, how much the particle is pushed away from the simulation walls
     public static float WALL_DAMP = 0.2f;
