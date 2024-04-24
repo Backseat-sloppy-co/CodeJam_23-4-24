@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [HideInInspector] public List<string> sceneNames = new List<string>();
+    [HideInInspector] public bool selectedGame = false;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
 
         sceneNames.Remove(SceneManager.GetActiveScene().name);
 
-        if (sceneNames.Count == 0)
+        if (sceneNames.Count == 0 || selectedGame)
         {
             SceneManager.LoadScene("MainMenu");
         }
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
 
         sceneNames.Remove(SceneManager.GetActiveScene().name);
 
-        if (sceneNames.Count == 0)
+        if (sceneNames.Count == 0 || selectedGame)
         {
             SceneManager.LoadScene("MainMenu");
         }
