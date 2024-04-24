@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: f66f3204b30034f459a59470e7d15512
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-    guid: 56aaa35cfdedcdf47bac0836d79eb327
+    guid: 07a8401cbac44d84fbeecb54d5a885b4
   - enabled: 1
     path: Assets/Scenes/FlappyBird.unity
     guid: 29b13dd0938d4194cb996ff9e4a2e51b

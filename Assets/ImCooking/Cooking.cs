@@ -5,61 +5,60 @@ using UnityEngine;
 
 public class Cooking : MonoBehaviour
 {
-
-    //Add a gameobject to the script of the steak
-    public GameObject steak;
+   
     public GameObject pan;
     public Material materialCooked;
-    
+    public Material materialBurnt;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(Cook());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        ControlPan();
-        RotatePan();
-        MovePan();
+        
     }
 
-    public IEnumerator Cook()
-    {
-        steak.GetComponent<Renderer>().material.color = Color.red;
-        yield return null;
-    }
 
-    //When the steak is colliding with the pan, the steak will change material to a different material
+    
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Food"))
+        Food food = collision.gameObject.GetComponent<Food>();
+        if (food != null)
         {
-            Debug.Log("Collided with pan");
-            //steak.GetComponent<Renderer>().material.color = Color.red;
-            //steak.GetComponent<Renderer>().material = materialCooked;
-            StartCoroutine(CookOverTime(collision.gameObject, 5.0f));
+            Debug.Log("Collided with " + collision.gameObject.name);
+            StartCoroutine(CookingProcess(food));
         }
     }
-    public IEnumerator CookOverTime(GameObject steak, float duration)
+
+    private IEnumerator CookingProcess(Food food)
+    {
+        yield return StartCoroutine(CookOverTime(food.gameObject, food.cookingTime, food.materialCooked)); // Cook 
+        yield return StartCoroutine(CookOverTime(food.gameObject, food.cookingTime, food.materialBurnt)); // Burn 
+    }
+
+
+    public IEnumerator CookOverTime(GameObject foodObject, float duration, Material targetMaterial)
     {
         float elapsedTime = 0;
-        Material originalMaterial = steak.GetComponent<Renderer>().material;
-        Material targetMaterial = materialCooked; // Assuming materialCooked is the final cooked material
+        Material originalMaterial = foodObject.GetComponent<Renderer>().material;
 
         while (elapsedTime < duration)
         {
             float lerpValue = elapsedTime / duration;
             Material newMaterial = new Material(originalMaterial);
             newMaterial.Lerp(originalMaterial, targetMaterial, lerpValue);
-            steak.GetComponent<Renderer>().material = newMaterial;
+            foodObject.GetComponent<Renderer>().material = newMaterial;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        steak.GetComponent<Renderer>().material = targetMaterial;
+        foodObject.GetComponent<Renderer>().material = targetMaterial;
     }
 
 

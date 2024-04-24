@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class CardGameBehaviour : MonoBehaviour
     [SerializeField] private Sprite cardBack;
     [SerializeField] private Sprite[] cardFace;
     [SerializeField] private AssignCards assignCards;
+    
     
     private bool isFlipped = false;
     private bool isMatched = false;
@@ -67,6 +69,8 @@ public class CardGameBehaviour : MonoBehaviour
     {
         button.image.sprite = cardFace[faceIndex];
         isFlipped = true;
+        assignCards.moves++;
+        assignCards.UpdateMoves();
     }
 
     public void Match()
