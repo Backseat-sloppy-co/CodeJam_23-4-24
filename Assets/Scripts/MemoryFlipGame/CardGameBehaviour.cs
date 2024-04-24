@@ -4,6 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+// This script was partially made by following a tutorial on YouTube by Mr. Kaiser
+// The link to the tutorial is: https://www.youtube.com/watch?v=bdOeOvvOKl8
+// This script was also made with the help of Github Copilot.
 public class CardGameBehaviour : MonoBehaviour
 {
     [SerializeField] private Button button;
@@ -14,7 +17,6 @@ public class CardGameBehaviour : MonoBehaviour
     private bool isFlipped = false;
     private bool isMatched = false;
     private int faceIndex;
-    private int amountofCardsFlipped = 0;
 
     public void Start()
     {
@@ -25,43 +27,60 @@ public class CardGameBehaviour : MonoBehaviour
     {
         if (!isFlipped && !isMatched)
         {
-            button.image.sprite = cardFace[faceIndex];
-            isFlipped = true;
+            Flip();
+            CheckMatch();
         }
-        else if (isFlipped && !isMatched)
+       
+    }
+ 
+    public void CheckMatch()
+    {
+        if (assignCards.firstCard == null)
         {
-            button.image.sprite = cardBack;
-            isFlipped = false;
+            assignCards.firstCard = this;
         }
-
-        if (amountofCardsFlipped < 2)
+        else if (assignCards.firstCard.faceIndex == faceIndex && assignCards.firstCard != this)
         {
-            amountofCardsFlipped++;
+            Match();
+            assignCards.firstCard.Match();
+            assignCards.firstCard = null;
         }
         else
         {
-            amountofCardsFlipped = 0;
+            Unflip();
+            assignCards.firstCard.Unflip();
+            assignCards.firstCard = null;
         }
     }
 
-    public int GetFaceIndex()
-    {
-        return faceIndex;
-    }
-
+ 
     public void AssignFace(int index)
     {
         faceIndex = index;
     }
-    public void Unflip()
+    private void Unflip()
     {
-        button.image.sprite = cardBack;
-        isFlipped = false;
+        StartCoroutine(Wait1Second());
+    }
+
+    private void Flip()
+    {
+        button.image.sprite = cardFace[faceIndex];
+        isFlipped = true;
     }
 
     public void Match()
     {
         isMatched = true;
+        assignCards.flippedCards++;
+        assignCards.CheckifDone();
+    }
+
+    public IEnumerator Wait1Second()
+    {
+        yield return new WaitForSeconds(1);
+        button.image.sprite = cardBack;
+        isFlipped = false;
     }
 
  
