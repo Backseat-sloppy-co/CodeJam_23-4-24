@@ -51,6 +51,8 @@ public class BirdMovement : MonoBehaviour
             
             Instantiate(deathPrefab, transform.position, Quaternion.identity);
 
+            Handheld.Vibrate();
+
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(1.75f));
         }
     }
