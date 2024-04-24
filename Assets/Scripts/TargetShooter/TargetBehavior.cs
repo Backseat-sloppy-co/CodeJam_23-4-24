@@ -87,7 +87,9 @@ public class TargetBehavior : MonoBehaviour
         if (IsAllTargetsHit())
         {
             Debug.Log("All targets are down");
-            //change to next level
+            //play sound
+            //maybe display win message
+            //change to next level after coroutine
         }
     }
     // this method checks if all targets are hit
