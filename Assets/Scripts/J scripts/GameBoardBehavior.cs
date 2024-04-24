@@ -43,7 +43,7 @@ public class GameBoardBehaviour : MonoBehaviour
     public void resetBoard()
     {
         Destroy(ball);
-        ball = Instantiate(ballPrefab, cameraPivot.position, Quaternion.identity);
+        ball = Instantiate(ballPrefab, Camera.main.transform.position, Quaternion.identity);
         ball.GetComponent<Rigidbody>().sleepThreshold = 0.0f;
 
         gameLogic.ball = ball;
