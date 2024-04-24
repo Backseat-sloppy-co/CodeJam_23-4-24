@@ -97,7 +97,7 @@ public class TargetBehavior : MonoBehaviour
             Debug.Log("All targets have been hit in " + time + " secounds");
         
             //maybe display win message
-            //change to next level after coroutine
+            //call the singleton that matts gonna make
         }
     }
     // this method checks if all targets are hit
