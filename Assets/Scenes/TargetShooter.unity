@@ -2510,7 +2510,7 @@ MonoBehaviour:
     mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
       type: 2}
     volume: 0.599
-    pitch: 1.28
+    pitch: 1.3
     loop: 0
     source: {fileID: 0}
   - name: Hitmarker
@@ -2518,15 +2518,15 @@ MonoBehaviour:
     mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
       type: 2}
     volume: 1
-    pitch: 1.01
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Beep
     clip: {fileID: 8300000, guid: 46b92849ac978b6489a2afa30fbfdd86, type: 3}
     mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
       type: 2}
-    volume: 0.3
-    pitch: 1.01
+    volume: 0.4
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!4 &2057041769
