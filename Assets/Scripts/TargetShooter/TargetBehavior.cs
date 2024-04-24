@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 
 class Target
 {
@@ -25,11 +25,13 @@ public class TargetBehavior : MonoBehaviour
     private float firerate = 0.5f;
    private float time;
     private bool isWin = false;
-    
+    private float nextSceneTime = 2f;
+   public TMP_Text timeText;
 
 
     private void Start()
     {
+        
         for (int i = 0; i < count; i++)
         {
             
@@ -94,10 +96,9 @@ public class TargetBehavior : MonoBehaviour
         {
            FindObjectOfType<AudioManager>().Play("Beep");
             isWin = true;
+            timeText.text = "Time: " + time;
             Debug.Log("All targets have been hit in " + time + " secounds");
-        
-            //maybe display win message
-            //call the singleton that matts gonna make
+           GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
         }
     }
     // this method checks if all targets are hit
