@@ -39,7 +39,11 @@ public class MainMenuBehaviour : MonoBehaviour
             var tempColor = image.color;
             tempColor.a = 1f;
             image.color = tempColor;
-            image.sprite = gameElement.icon;
+
+            if(gameElement.icon != null)
+            {
+                image.sprite = gameElement.icon;
+            }
             
             ge.GetComponent<Button>().onClick.AddListener(() =>
             {
