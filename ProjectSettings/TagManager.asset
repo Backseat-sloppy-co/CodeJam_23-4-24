@@ -9,6 +9,11 @@ TagManager:
   - Penguin
 =======
   - Enemy
+<<<<<<< HEAD
+>>>>>>> main
+=======
+  - Target
+  - Food
 >>>>>>> main
   layers:
   - Default
