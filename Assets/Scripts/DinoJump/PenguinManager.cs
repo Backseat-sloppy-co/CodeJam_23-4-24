@@ -7,7 +7,7 @@ public class PenguinManager : MonoBehaviour
     [SerializeField] private GameObject penguinPrefab;
     private CapsuleCollider penguinCollider;
     private float SpawnRate;
-    private Vector3 penguinSpawnPoint = new Vector3(12.7f, -0.42f, 0.28f);
+    private Vector3 penguinSpawnPoint = new Vector3(12.7f, -1.42f, 0.28f);
 
     void Start()
     {

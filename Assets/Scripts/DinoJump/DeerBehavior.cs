@@ -12,9 +12,12 @@ public class DeerBehavior : MonoBehaviour
 
     public int lifeCounter = 3;
 
+    private UIManager uiManager;
+
     private Quaternion rotation = Quaternion.Euler(-0.557f, 97.747f, -0.003f);
     void Start()
     {
+        uiManager = FindObjectOfType<UIManager>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
     }
@@ -51,16 +54,17 @@ public class DeerBehavior : MonoBehaviour
             Debug.Log("Game Over!");
             Time.timeScale = 0;
         }
-  
-    }
-   void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.CompareTag("Penguin"))
-            {
-                Destroy(collision.gameObject);
-                Debug.Log("Penguin Destroyed!");
-            lifeCounter --;
 
-            }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Penguin"))
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("Penguin Destroyed!");
+            lifeCounter--;
+            uiManager.UpdateLifeIcons(lifeCounter);
+
         }
+    }
 }
