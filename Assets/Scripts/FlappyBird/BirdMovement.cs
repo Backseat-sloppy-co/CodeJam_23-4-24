@@ -48,10 +48,10 @@ public class BirdMovement : MonoBehaviour
             transform.localScale = new Vector3(5, 0.5f, 3);
             rb.isKinematic = true;
             rb.angularVelocity = Vector3.up * 50f;
-
-            GameObject death = Instantiate(deathPrefab, transform.position, Quaternion.identity);
-            var main = death.GetComponent<ParticleSystem>().main;
-            main.loop = false;
+            
+            Instantiate(deathPrefab, transform.position, Quaternion.identity);
+            
+            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(1.75f));
         }
     }
 }
