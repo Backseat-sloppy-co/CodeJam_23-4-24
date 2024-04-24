@@ -1,9 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Xml.Serialization;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
+
 
 class Target
 {
@@ -23,13 +22,15 @@ public class TargetBehavior : MonoBehaviour
     public List<Transform> targetLocation = new List<Transform>();
     public int count = 10;
     public GameObject weapon;
-    private float firerate = 0.05f;
+    private float firerate = 0.5f;
+   private float time;
+    private bool isWin = false;
     
-  
+
 
     private void Start()
     {
-        
+        FindObjectOfType<AudioManager>().Play("Beep");
         for (int i = 0; i < count; i++)
         {
             
@@ -40,13 +41,19 @@ public class TargetBehavior : MonoBehaviour
          
 
         }
-        var _target = targets[Random.Range(0, targets.Count)];
+        var _target = targets[UnityEngine.Random.Range(0, targets.Count)];
         _target.isTarget = true;
         _target.target.GetComponent<Animator>().SetBool("openUp", true);
       
     }
     private void Update()
     {
+        if (isWin)
+        {
+            return;
+        }
+        time += Time.deltaTime;
+
         if (Input.GetMouseButtonDown(0))
         {
             StartCoroutine(Shoot());
@@ -73,7 +80,7 @@ public class TargetBehavior : MonoBehaviour
                                 Debug.Log("Target is hit");
                                 anim.SetBool("isHit", true);
 
-                                var _target = targets[Random.Range(0, targets.Count)];
+                                var _target = targets[UnityEngine.Random.Range(0, targets.Count)];
                                 _target.isTarget = true;
                                 _target.target.GetComponent<Animator>().SetBool("openUp", true);
                                 Debug.Log("New target is set");
@@ -86,7 +93,10 @@ public class TargetBehavior : MonoBehaviour
         }
         if (IsAllTargetsHit())
         {
-            Debug.Log("All targets are down");
+            FindObjectOfType<AudioManager>().Play("Beep");
+            isWin = true;
+            Debug.Log("All targets have been hit in " + time + " secounds");
+        
             //play sound
             //maybe display win message
             //change to next level after coroutine
@@ -113,4 +123,6 @@ public class TargetBehavior : MonoBehaviour
         yield return new WaitForSeconds(firerate);
         weapon.GetComponent<Animator>().SetBool("isShoot", false);
     }
+
+    
 }
