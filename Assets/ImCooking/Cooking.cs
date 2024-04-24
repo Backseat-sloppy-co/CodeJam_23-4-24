@@ -9,7 +9,7 @@ public class Cooking : MonoBehaviour
     public GameObject pan;
     public Material materialCooked;
     public Material materialBurnt;
-
+    public bool isCooking = false; // Whether the food is in contact with the pan
 
 
     // Start is called before the first frame update
@@ -24,7 +24,6 @@ public class Cooking : MonoBehaviour
         
     }
 
-
     
     private void OnCollisionEnter(Collision collision)
     {
@@ -32,14 +31,37 @@ public class Cooking : MonoBehaviour
         if (food != null)
         {
             Debug.Log("Collided with " + collision.gameObject.name);
+            isCooking = true;
             StartCoroutine(CookingProcess(food));
+            FindObjectOfType<AudioManager>().Play("Sizzling");
         }
     }
 
-    private IEnumerator CookingProcess(Food food)
+    private void OnCollisionExit(Collision collision)
     {
-        yield return StartCoroutine(CookOverTime(food.gameObject, food.cookingTime, food.materialCooked)); // Cook 
-        yield return StartCoroutine(CookOverTime(food.gameObject, food.cookingTime, food.materialBurnt)); // Burn 
+        // Stop the cooking process when the food is no longer in contact with the pan
+        Food food = collision.gameObject.GetComponent<Food>();
+        if (food == null)
+        {
+            isCooking = false;
+            FindObjectOfType<AudioManager>().Stop("Sizzling");
+        }
+    }
+
+        private IEnumerator CookingProcess(Food food)
+    {
+
+        while (isCooking && food.cookingTime > 0)
+        {
+            yield return StartCoroutine(CookOverTime(food.gameObject, food.cookingTime, food.materialCooked)); // Cook 
+            food.cookingTime -= Time.deltaTime;
+        }
+        while (isCooking && food.burningTime > 0)
+        {
+            yield return StartCoroutine(CookOverTime(food.gameObject, food.burningTime, food.materialBurnt)); // Burn 
+            food.burningTime -= Time.deltaTime;
+        }
+            
     }
 
 
@@ -50,6 +72,13 @@ public class Cooking : MonoBehaviour
 
         while (elapsedTime < duration)
         {
+            if (!isCooking)
+            {
+                yield return null;
+                continue;
+            }
+
+
             float lerpValue = elapsedTime / duration;
             Material newMaterial = new Material(originalMaterial);
             newMaterial.Lerp(originalMaterial, targetMaterial, lerpValue);
@@ -58,7 +87,11 @@ public class Cooking : MonoBehaviour
             yield return null;
         }
 
-        foodObject.GetComponent<Renderer>().material = targetMaterial;
+        if (isCooking)
+        {
+            foodObject.GetComponent<Renderer>().material = targetMaterial;
+        }
+            
     }
 
 
