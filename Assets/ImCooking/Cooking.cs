@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Cooking : MonoBehaviour
 {
-    //Add a gameobject to the script of the steak
+   
     public GameObject pan;
     public Material materialCooked;
     public Material materialBurnt;
@@ -21,13 +21,11 @@ public class Cooking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ControlPan();
-        RotatePan();
-        MovePan();
+        
     }
 
 
-    //When the steak is colliding with the pan, the steak will change material to a different material
+    
     private void OnCollisionEnter(Collision collision)
     {
         Food food = collision.gameObject.GetComponent<Food>();
