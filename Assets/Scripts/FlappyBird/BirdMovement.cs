@@ -6,13 +6,13 @@ using UnityEngine;
 public class BirdMovement : MonoBehaviour
 {
     public float jumpForce = 10f;
-    public float gravity = 1f;
     public TMP_Text text;
     public float upperLimit = 6f;
     public float lowerLimit = -4.25f;
 
-    private float magnitude = 0f;
     private Rigidbody rb;
+
+    public GameObject deathPrefab;
 
     private void Start()
     {
@@ -22,19 +22,12 @@ public class BirdMovement : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            //transform.Translate(Vector3.up * jumpForce);
+            rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
 
-        magnitude = Input.acceleration.magnitude;
-        magnitude = Mathf.Clamp(magnitude, 0f, 1f);
-        //magnitude *= Time.deltaTime;
-
-        
-        transform.Translate(Vector3.up * jumpForce * magnitude);
-        text.text = "" + magnitude;
-
-        //transform.Translate(Vector3.down * gravity * Time.deltaTime);
+        var intTime = (int)Time.time;
+        text.text = intTime.ToString();
 
         if(transform.position.y > upperLimit)
         {
@@ -44,6 +37,20 @@ public class BirdMovement : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, lowerLimit, transform.position.z);
             rb.velocity = Vector3.zero;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            transform.localScale = new Vector3(5, 0.5f, 3);
+            rb.isKinematic = true;
+            rb.angularVelocity = Vector3.up * 50f;
+
+            GameObject death = Instantiate(deathPrefab, transform.position, Quaternion.identity);
+            var main = death.GetComponent<ParticleSystem>().main;
+            main.loop = false;
         }
     }
 }
