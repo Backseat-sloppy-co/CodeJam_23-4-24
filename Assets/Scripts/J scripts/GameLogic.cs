@@ -34,7 +34,6 @@ public class GameLogic : MonoBehaviour
         {
             return;
         }
-
         //when ball enters winbox collition trigger
         if (winBox.bounds.Contains(ball.transform.position))
         {
@@ -47,12 +46,10 @@ public class GameLogic : MonoBehaviour
             triesText.text = "Atempts: " + ++tries;
         }
     }
-
     private void Win()
     {
         winPanel.SetActive(true);
     }
-
     private void NextLevel()
     {
         GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene());

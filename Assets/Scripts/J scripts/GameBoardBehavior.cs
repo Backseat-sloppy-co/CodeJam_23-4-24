@@ -75,9 +75,9 @@ public class GameBoardBehaviour : MonoBehaviour
         float x, y, z;
         Vector3 gyro = Input.gyro.attitude.eulerAngles;
 
-        x = gyro.x;
+        x = -gyro.x;
         y = 0;
-        z = gyro.y;
+        z = -gyro.y;
 
         Vector3 inputGyro = new Vector3(x, y, z);
 
