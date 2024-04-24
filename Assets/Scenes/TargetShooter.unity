@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18945049, g: 0.53694075, b: 0.8419368, a: 1}
+  m_IndirectSpecularColor: {r: 0.18936656, g: 0.53687316, b: 0.84181744, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3667,6 +3667,14 @@ MonoBehaviour:
     mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
       type: 2}
     volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Flyby
+    clip: {fileID: 8300000, guid: 4a4491381d892254db4c09eb0cb509b8, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 0.5
     pitch: 1
     loop: 0
     source: {fileID: 0}
