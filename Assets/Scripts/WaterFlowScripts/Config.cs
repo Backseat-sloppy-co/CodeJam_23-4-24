@@ -17,7 +17,7 @@ public class Config : MonoBehaviour
     public static float WALL_POS = 0.08f; // Position adjustment for particles that are too close to the walls
 
     // Physics parameters
-    public static float G = 0.02f * 0.25f;  // Acceleration of gravity
+    public static float G = 0.02f * 1f;  // Acceleration of gravity
     public static float SPACING = 0.08f;  // Spacing between particles, used to calculate pressure
     public static float K = SPACING / 1000.0f;  // Pressure factor
     public static float K_NEAR = K * 10f;  // Near pressure factor, pressure when particles are close to each other
