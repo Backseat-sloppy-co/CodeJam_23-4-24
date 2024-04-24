@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            var randomScene = Random.Range(0, sceneNames.Count) -1;
+            var randomScene = Random.Range(0, sceneNames.Count);
             SceneManager.LoadScene(sceneNames[randomScene]);
         }
     }
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            var randomScene = Random.Range(0, sceneNames.Count) -1;
+            var randomScene = Random.Range(0, sceneNames.Count);
             SceneManager.LoadScene(sceneNames[randomScene]);
         }
     }
