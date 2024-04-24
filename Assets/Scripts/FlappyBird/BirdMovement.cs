@@ -50,7 +50,7 @@ public class BirdMovement : MonoBehaviour
             rb.angularVelocity = Vector3.up * 50f;
             
             Instantiate(deathPrefab, transform.position, Quaternion.identity);
-            
+
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(1.75f));
         }
     }

@@ -15,6 +15,9 @@ public class DeerBehavior : MonoBehaviour
     private UIManager uiManager;
 
     private Quaternion rotation = Quaternion.Euler(-0.557f, 97.747f, -0.003f);
+
+    private float nextSceneTime = 2f;
+
     void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
@@ -52,7 +55,9 @@ public class DeerBehavior : MonoBehaviour
         if (lifeCounter == 0)
         {
             Debug.Log("Game Over!");
-            Time.timeScale = 0;
+
+            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
+
         }
 
     }
