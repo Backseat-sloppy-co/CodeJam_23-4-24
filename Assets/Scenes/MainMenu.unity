@@ -305,7 +305,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 400, y: 400}
-  m_Spacing: {x: 100, y: 150}
+  m_Spacing: {x: 100, y: 200}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &166334734
@@ -663,9 +663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Game Name
-
-'
+  m_text: Jasons minigames for hospitalized children
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -728,7 +726,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -175.51611, y: 0, z: -255.38672, w: -127.39636}
+  m_margin: {x: -572.9222, y: 0, z: -662.462, w: -257.82538}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1307,7 +1305,8 @@ MonoBehaviour:
   gameElements:
   - {fileID: 11400000, guid: 1173cee06783ab645980f58378c123d0, type: 2}
   - {fileID: 11400000, guid: dac24614def49b848b8bee98ea25b2c2, type: 2}
-  - {fileID: 11400000, guid: 4d4ae1f6b8ce53f4f9a56afa9adf1633, type: 2}
+  - {fileID: 11400000, guid: a90815d5745ff4f42aaff793329b8077, type: 2}
+  - {fileID: 11400000, guid: 454dae6d8cc2e3b46a928836866ef451, type: 2}
   playButton: {fileID: 1394170844}
   selectButton: {fileID: 1486760013}
   cancelButton: {fileID: 1729005123}
