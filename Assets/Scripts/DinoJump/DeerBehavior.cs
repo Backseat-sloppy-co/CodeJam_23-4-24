@@ -18,6 +18,8 @@ public class DeerBehavior : MonoBehaviour
 
     private float nextSceneTime = 2f;
 
+    public Sound[] Horse; 
+
     void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
