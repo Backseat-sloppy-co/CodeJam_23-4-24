@@ -3,18 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-<<<<<<< HEAD
-  - Penguin
-  - Enemy
-  - Food
-=======
-  - Ground
-  - Enemy
-  - Target
-  - Water
-  - Penguin
->>>>>>> f509d579ad36215ea44297e3081e8b0b7d891d0d
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -22,13 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-<<<<<<< HEAD
-  - Ground
-  - WaterDrops
-=======
-  - WaterDrops
   - 
->>>>>>> f509d579ad36215ea44297e3081e8b0b7d891d0d
+  - 
   - 
   - 
   - 
