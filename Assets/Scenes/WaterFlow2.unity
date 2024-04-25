@@ -3841,14 +3841,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3866743232975109001}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3048515, y: -0.5466799, z: 0.24209797, w: 0.74134696}
+  m_LocalRotation: {x: -0.02747043, y: -0.62511563, z: 0.49751306, w: 0.6007966}
   m_LocalPosition: {x: 0.10173414, y: 0.000000103064025, z: 0.000000544563}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 464818647506623499}
   m_Father: {fileID: 968816252568492375}
-  m_LocalEulerAnglesHint: {x: 45.783, y: -71.921, z: 2.107}
+  m_LocalEulerAnglesHint: {x: 36.086, y: -74.427, z: 51.466}
 --- !u!1 &235754068981604846
 GameObject:
   m_ObjectHideFlags: 0
@@ -5368,7 +5368,7 @@ Transform:
   m_LocalRotation: {x: 0.00000003729867, y: -0.000000011022124, z: 0.15334688, w: 0.9881725}
   m_LocalPosition: {x: -0.20523393, y: -3.5527136e-17, z: 1.09031954e-16}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2012352357518189296}
   - {fileID: 1289928654789599632}
@@ -5444,27 +5444,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &5932120521455846542
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6814590545385200911}
-  m_Enabled: 0
-  m_Avatar: {fileID: 9000000, guid: 0308cf4e83cf517488b60af58b290fe0, type: 3}
-  m_Controller: {fileID: 9100000, guid: 2be64f57d7d213648aa9b2e5e8e0a39b, type: 2}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &6007351854229310954
 Transform:
   m_ObjectHideFlags: 0
@@ -5701,7 +5680,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6186144142546683829}
-  - component: {fileID: 5932120521455846542}
   m_Layer: 0
   m_Name: MaleCharacterPolyart
   m_TagString: Untagged
@@ -5807,6 +5785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5596129402094842367}
+  - component: {fileID: 7164990043213897704}
   m_Layer: 0
   m_Name: head
   m_TagString: Untagged
@@ -5814,6 +5793,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &7164990043213897704
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7164990043213897703}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee1a0c08a82285045a6fc81ea45a8c2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &7186730499118973045
 Transform:
   m_ObjectHideFlags: 0
