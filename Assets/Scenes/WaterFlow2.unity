@@ -934,7 +934,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 758272109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a9e67f9a928f94e8e0652757f035b2, type: 3}
+  m_Script: {fileID: 11500000, guid: cf6e8890ab2cff74bafffc01f751e843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &820583291
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444010462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d9baf3fb840fba478746f58f09bc038, type: 3}
+  m_Script: {fileID: 11500000, guid: b457d6c82c627f140800b7640e4d91fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1460729300
@@ -1625,7 +1625,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1534127444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ae86774528074498b41d90b12073ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c4d0b5c29ee3bb4aa9aebed08254625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1759880273
@@ -1739,7 +1739,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1759880274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 273138a5d04f66c4d97873a1c5d23d38, type: 3}
+  m_Script: {fileID: 11500000, guid: 42ff128544e8a6846a68d7a54e2b959f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waterPrefab: {fileID: 2939482505741650517, guid: 3aaff884f656090429a3b9087fd040f2,
@@ -1762,7 +1762,7 @@ Animator:
   m_GameObject: {fileID: 1759880274}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4cb6e4c3d71e4a94b8d2bdc7c082c026, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1c19365cdb1473a4f913e2bcc1799aa2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
