@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1893639, g: 0.5368842, b: 0.8419978, a: 1}
+  m_IndirectSpecularColor: {r: 0.18942134, g: 0.53693354, b: 0.84186417, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2775,7 +2775,7 @@ PrefabInstance:
     - target: {fileID: 4845280019125430733, guid: 6b5140e90cca96b4ca7b0dae45e58fef,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.236
+      value: 0.254
       objectReference: {fileID: 0}
     - target: {fileID: 4845280019125430733, guid: 6b5140e90cca96b4ca7b0dae45e58fef,
         type: 3}
@@ -3615,6 +3615,83 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1725406649}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2057041767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2057041769}
+  - component: {fileID: 2057041768}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2057041768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057041767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1491060ebaedf34da36458ed4f98d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: Shoot
+    clip: {fileID: 8300000, guid: 8c282800950ed7f4590160b696fecb86, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 0.599
+    pitch: 1.3
+    loop: 0
+    source: {fileID: 0}
+  - name: Hitmarker
+    clip: {fileID: 8300000, guid: ca509eef567595d449b0458b3bbde158, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Beep
+    clip: {fileID: 8300000, guid: 46b92849ac978b6489a2afa30fbfdd86, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Flyby
+    clip: {fileID: 8300000, guid: 4a4491381d892254db4c09eb0cb509b8, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &2057041769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057041767}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.1695905, y: 12.77204, z: 25.748901}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2081333519
 PrefabInstance:
@@ -5247,74 +5324,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1001 &5702147443868785537
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2651484927009454057, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_Name
-      value: SoundManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.1695905
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 12.77204
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 25.748901
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fa4b465b790f34e4c8e93424762e8c97, type: 3}
 --- !u!1 &6115457614607233935
 GameObject:
   m_ObjectHideFlags: 0
@@ -5757,6 +5766,6 @@ SceneRoots:
   - {fileID: 1306176721}
   - {fileID: 1725406649}
   - {fileID: 1070490565}
-  - {fileID: 5702147443868785537}
+  - {fileID: 2057041769}
   - {fileID: 3537247360814842662}
   - {fileID: 173370972}
