@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
+using UnityEngine.UIElements;
 
 public class DeerBehavior : MonoBehaviour
 {
@@ -18,11 +19,14 @@ public class DeerBehavior : MonoBehaviour
 
     private float nextSceneTime = 2f;
 
+    public Sound[] horseSound;
+
     void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
+        
     }
 
     void Update()
@@ -56,6 +60,8 @@ public class DeerBehavior : MonoBehaviour
         {
             Debug.Log("Game Over!");
 
+     
+
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
 
         }
@@ -69,6 +75,7 @@ public class DeerBehavior : MonoBehaviour
             Debug.Log("Penguin Destroyed!");
             lifeCounter--;
             uiManager.UpdateLifeIcons(lifeCounter);
+           // horseSound[Random.Range(0, horseSound.Length)].Play();
 
         }
     }

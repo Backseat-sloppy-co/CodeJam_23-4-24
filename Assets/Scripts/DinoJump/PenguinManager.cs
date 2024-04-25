@@ -16,6 +16,12 @@ public class PenguinManager : MonoBehaviour
 
     private void Update()
     {
+        // first spawn will always take 6 seconds
+        if (Time.time < 6)
+        {
+            SpawnRate = 6;
+        }
+
         //spawn penguin at random interval between 1 and 6 seconds
         if (Time.time > SpawnRate)
         {
