@@ -70,7 +70,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: Flyby
-    clip: {fileID: 8300000, guid: 4a4491381d892254db4c09eb0cb509b8, type: 3}
+    clip: {fileID: 8300000, guid: f26abc6ac8b28f54ead9feed16d876e6, type: 3}
     mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
       type: 2}
     volume: 0.5

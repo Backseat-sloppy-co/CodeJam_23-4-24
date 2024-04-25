@@ -44,8 +44,8 @@ public class TargetBehavior : MonoBehaviour
         var _target = targets[UnityEngine.Random.Range(0, targets.Count)];
         _target.isTarget = true;
         _target.target.GetComponent<Animator>().SetBool("openUp", true);
-       FindObjectOfType<AudioManager>().Play("Beep");
-       FindObjectOfType<AudioManager>().Play("Flyby");
+       AudioManager.instance.Play("Beep");
+        AudioManager.instance.Play("Flyby");
     }
     private void Update()
     {
@@ -67,7 +67,7 @@ public class TargetBehavior : MonoBehaviour
             {
                 if(hit.collider.gameObject.CompareTag("Enemy"))
                 {
-                    FindObjectOfType<AudioManager>().Play("Hitmarker");
+                    AudioManager.instance.Play("Hitmarker");
                     Debug.Log("Target is clicked");
                     foreach (var target in targets)
                     {
@@ -95,7 +95,7 @@ public class TargetBehavior : MonoBehaviour
         }
         if (IsAllTargetsHit())
         {
-           FindObjectOfType<AudioManager>().Play("Beep");
+           AudioManager.instance.Play("Beep");
             isWin = true;
             timeText.text = "Time: " + time;
             Debug.Log("All targets have been hit in " + time + " secounds");
@@ -119,7 +119,7 @@ public class TargetBehavior : MonoBehaviour
     {
         //play shooting animation
         weapon.GetComponent<Animator>().SetBool("isShoot", true);
-        FindObjectOfType<AudioManager>().Play("Shoot");
+        AudioManager.instance.Play("Shoot");
        yield return new WaitForSeconds(firerate);
         weapon.GetComponent<Animator>().SetBool("isShoot", false);
     }
