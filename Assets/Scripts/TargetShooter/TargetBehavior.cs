@@ -22,11 +22,11 @@ public class TargetBehavior : MonoBehaviour
     public List<Transform> targetLocation = new List<Transform>();
     public int count = 10;
     public GameObject weapon;
-    private float firerate = 0.5f;
-   private float time;
+    private float firerate = 0f;
+    private float time;
     private bool isWin = false;
     private float nextSceneTime = 2f;
-   public TMP_Text timeText;
+    public TMP_Text timeText;
 
 
     private void Start()
@@ -39,9 +39,8 @@ public class TargetBehavior : MonoBehaviour
            
             target.transform.parent = transform;
             targets.Add(new Target(target));
-         
-
         }
+
         var _target = targets[UnityEngine.Random.Range(0, targets.Count)];
         _target.isTarget = true;
         _target.target.GetComponent<Animator>().SetBool("openUp", true);
@@ -54,6 +53,7 @@ public class TargetBehavior : MonoBehaviour
         {
             return;
         }
+
         time += Time.deltaTime;
 
         if (Input.GetMouseButtonDown(0))
@@ -120,7 +120,7 @@ public class TargetBehavior : MonoBehaviour
         //play shooting animation
         weapon.GetComponent<Animator>().SetBool("isShoot", true);
         FindObjectOfType<AudioManager>().Play("Shoot");
-        yield return new WaitForSeconds(firerate);
+       yield return new WaitForSeconds(firerate);
         weapon.GetComponent<Animator>().SetBool("isShoot", false);
     }
 
