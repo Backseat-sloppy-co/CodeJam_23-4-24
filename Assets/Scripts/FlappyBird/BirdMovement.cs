@@ -24,6 +24,8 @@ public class BirdMovement : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+            AudioManager.instance.Play("Whoosh");
         }
 
        time += Time.deltaTime;
@@ -50,6 +52,8 @@ public class BirdMovement : MonoBehaviour
             rb.angularVelocity = Vector3.up * 50f;
             
             Instantiate(deathPrefab, transform.position, Quaternion.identity);
+
+            AudioManager.instance.Play("Explosion");
 
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(1.75f));
         }
