@@ -22,13 +22,22 @@ public class AssignCards : MonoBehaviour
     private float nextSceneTime = 5f;
     [SerializeField] private GameObject confettiScreen;
 
+    // CardFaceIndexes
+    private int chickenIndex = 0;
+    private int deerIndex = 1;
+    private int dogIndex = 2;
+    private int horseIndex = 3;
+    private int penguinIndex = 4;
+    private int tigerIndex = 5;
+
 
     // Start is called before the first frame update
     void Start()
     {
         flippedCards = 0;
         _transform = GetComponent<Transform>();
-        faceIndex = new List<int> { 0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5 };
+        // 6 pairs of cards
+        faceIndex = new List<int> { chickenIndex, chickenIndex, deerIndex, deerIndex, dogIndex, dogIndex, horseIndex, horseIndex, penguinIndex, penguinIndex, tigerIndex, tigerIndex }; 
 
         startnumberofCards = numberofCards;
         for (int i = 0; i < startnumberofCards; i++)
