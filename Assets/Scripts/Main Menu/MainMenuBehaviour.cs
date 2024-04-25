@@ -14,12 +14,11 @@ public class MainMenuBehaviour : MonoBehaviour
     public Button playButton;
     public Button selectButton;
     public Button cancelButton;
-    public Transform leftPivot;
-    public Transform rightPivot;
-    public Transform mainPivot;
     public Transform mainCanvas;
     public Transform selectCanvas;
-
+    public Transform mainPos;
+    public Transform rightPos;
+    public Transform leftPos;
     public GameObject gameElementPrefab;
 
     private void Start()
@@ -35,7 +34,6 @@ public class MainMenuBehaviour : MonoBehaviour
         playButton.onClick.AddListener(Play);
         selectButton.onClick.AddListener(Select);
         cancelButton.onClick.AddListener(Cancel);
-
 
         //setting up the buttonts gamelements
         foreach (var gameElement in gameElements)
@@ -67,24 +65,24 @@ public class MainMenuBehaviour : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    private void Play()
+    public void Play()
     {
         var randomScene = Random.Range(0, gameElements.Count);
         SceneManager.LoadScene(gameElements[randomScene].sceneName);
     }
 
-    private void Select()
+    public void Select()
     {
         StopAllCoroutines();
-        StartCoroutine(MoveTowards(mainCanvas, leftPivot));
-        StartCoroutine(MoveTowards(selectCanvas, mainPivot));
+        StartCoroutine(MoveTowards(mainCanvas, leftPos));
+        StartCoroutine(MoveTowards(selectCanvas, mainPos));
     }
 
-    private void Cancel()
+    public void Cancel()
     {
         StopAllCoroutines();
-        StartCoroutine(MoveTowards(selectCanvas, rightPivot));
-        StartCoroutine(MoveTowards(mainCanvas, mainPivot));
+        StartCoroutine(MoveTowards(selectCanvas, rightPos));
+        StartCoroutine(MoveTowards(mainCanvas, mainPos));
     }
 
     private IEnumerator MoveTowards(Transform target, Transform pivot)
