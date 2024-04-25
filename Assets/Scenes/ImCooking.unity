@@ -1749,6 +1749,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &560272664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2651484927009454057, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fa4b465b790f34e4c8e93424762e8c97, type: 3}
 --- !u!1 &593850162
 GameObject:
   m_ObjectHideFlags: 0
@@ -4712,7 +4780,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1381806829}
-  - component: {fileID: 1381806830}
   - component: {fileID: 1381806831}
   m_Layer: 0
   m_Name: ScriptHolder
@@ -4736,43 +4803,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1381806830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1381806827}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1491060ebaedf34da36458ed4f98d5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Sizzling
-    clip: {fileID: 8300000, guid: 130fa2b6034224842981f87de4d437ac, type: 3}
-    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
-      type: 2}
-    volume: 0.753
-    pitch: 1.5
-    loop: 0
-    source: {fileID: 0}
-  - name: Succes
-    clip: {fileID: 8300000, guid: 732032abf8af8224bbf5c15253839e74, type: 3}
-    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
-      type: 2}
-    volume: 0.753
-    pitch: 1.5
-    loop: 0
-    source: {fileID: 0}
-  - name: Fail
-    clip: {fileID: 8300000, guid: bb74d857a3db79a4eac14d6349508809, type: 3}
-    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
-      type: 2}
-    volume: 0.753
-    pitch: 1.5
-    loop: 0
-    source: {fileID: 0}
 --- !u!114 &1381806831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7580,3 +7610,4 @@ SceneRoots:
   - {fileID: 280381734}
   - {fileID: 993201744}
   - {fileID: 636920394}
+  - {fileID: 560272664}

@@ -53,6 +53,7 @@ public class ScoreManager : MonoBehaviour
     public void NextScene()
     {
         GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(1f));
+        endButton.SetActive(false);
     }
 
 }
