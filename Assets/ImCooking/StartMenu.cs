@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class StartMenu : MonoBehaviour
@@ -8,7 +7,6 @@ public class StartMenu : MonoBehaviour
     public Camera mainCamera; // Reference to the main camera
     public Camera startMenuCamera; // Reference to the start menu camera
     public GameObject startMenuGameObject;
-    
 
     public void StartGame()
     {

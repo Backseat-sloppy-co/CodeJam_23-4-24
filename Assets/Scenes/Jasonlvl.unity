@@ -630,7 +630,7 @@ MonoBehaviour:
   ballPrefab: {fileID: 6639008681698078063, guid: 96bfdca9af82ab14b8a03d615dfb54e6,
     type: 3}
   InputSpeed: 10
-  manuelDamp: 0.5
+  manuelDamp: 10
   gyroDamp: 5
   manuelInput: {x: 0, y: 0, z: 0}
   gameLogic: {fileID: 0}

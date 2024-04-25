@@ -48,14 +48,36 @@ public class DeerBehavior : MonoBehaviour
         if (isGrounded)
         {
             if (Input.touchCount > 0)
-                jump();
+                StartCoroutine(jump());
 
             if (Input.GetMouseButtonDown(0))
-                jump();
+                StartCoroutine(jump());
         }
-        void jump()
+        else
+        {
+            if (Input.touchCount > 0)
+                StartCoroutine(fall());
+
+            if (Input.GetMouseButtonDown(0))
+               StartCoroutine(fall());
+
+
+
+        }
+
+        IEnumerator jump()
         {
             rb.velocity = Vector3.up * jumpForce;
+            AudioManager.instance.Play("Jump");
+            yield return new WaitForSeconds(0.5f); // wait for half a second
+        }
+
+        IEnumerator fall()
+        {
+           
+            rb.velocity = Vector3.down * jumpForce;
+            AudioManager.instance.Play("Down");
+            yield return new WaitForSeconds(0.5f); // wait for half a second
         }
 
         // force the deer to be at the same z and x position
