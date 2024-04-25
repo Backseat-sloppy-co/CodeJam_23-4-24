@@ -136,12 +136,12 @@ GameObject:
   - component: {fileID: 29861606}
   - component: {fileID: 29861605}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: ConfettiCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &29861605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 20
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -453,8 +453,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 5
-      minScalar: 2
+      scalar: 20
+      minScalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -571,8 +571,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.03
-      minScalar: 0.01
+      scalar: 0.1
+      minScalar: 0.05
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -956,7 +956,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 5, y: 0.5, z: 1}
+    m_Scale: {x: 50, y: 2, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1154,7 +1154,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 60
+      scalar: 120
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5050,7 +5050,7 @@ Transform:
   m_GameObject: {fileID: 69446584}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0047148583, y: -0.70709103, z: 0.7070911, w: -0.004714858}
-  m_LocalPosition: {x: -15, y: 848, z: -21.004667}
+  m_LocalPosition: {x: -15.009492, y: 848, z: -21.004402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5280,11 +5280,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 306345746}
+      objectReference: {fileID: 131220312}
     - target: {fileID: 5822962779875315756, guid: 7e7ce1324a8244345b436f3f34bc7efe,
         type: 3}
       propertyPath: m_RenderMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7570407990423927166, guid: 7e7ce1324a8244345b436f3f34bc7efe,
         type: 3}
@@ -5301,6 +5301,11 @@ PrefabInstance:
       propertyPath: flippedCards
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7570407990423927166, guid: 7e7ce1324a8244345b436f3f34bc7efe,
+        type: 3}
+      propertyPath: confettiScreen
+      value: 
+      objectReference: {fileID: 29861604}
     - target: {fileID: 8110744879592649957, guid: 7e7ce1324a8244345b436f3f34bc7efe,
         type: 3}
       propertyPath: m_Name
@@ -5736,8 +5741,8 @@ Transform:
   m_GameObject: {fileID: 1125298780}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3974.86, y: 1035.74, z: -583.02}
-  m_LocalScale: {x: 6, y: 0.1, z: 2}
+  m_LocalPosition: {x: -3974.86, y: 981.7, z: -583.02}
+  m_LocalScale: {x: 80, y: 0.1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6003,7 +6008,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cardBack
       value: 
-      objectReference: {fileID: 21300000, guid: 69e1a6372c87c45489d818a8fd7d1fd4,
+      objectReference: {fileID: 21300000, guid: e070b456ead4f9f44860b1928abafe93,
         type: 3}
     - target: {fileID: 6326763825747052471, guid: 2b0c46a189fb6094599422217fa10c5d,
         type: 3}
@@ -6014,37 +6019,37 @@ PrefabInstance:
         type: 3}
       propertyPath: cardFace.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 3fb7b9447f0114c45950a3a33725ce94,
+      objectReference: {fileID: 21300000, guid: 5e6aa98a3c3e0434ca296a975775767d,
         type: 3}
     - target: {fileID: 6326763825747052471, guid: 2b0c46a189fb6094599422217fa10c5d,
         type: 3}
       propertyPath: cardFace.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 21ef9807cc0cd1045a4aeb0b9283e434,
+      objectReference: {fileID: 21300000, guid: 0a65a59d37695294da2b2ecfc072535c,
         type: 3}
     - target: {fileID: 6326763825747052471, guid: 2b0c46a189fb6094599422217fa10c5d,
         type: 3}
       propertyPath: cardFace.Array.data[2]
       value: 
-      objectReference: {fileID: 21300000, guid: 270d016a129dcff4c858a4159318d66d,
+      objectReference: {fileID: 21300000, guid: 22dc413bb6686ce478429d648e1769fa,
         type: 3}
     - target: {fileID: 6326763825747052471, guid: 2b0c46a189fb6094599422217fa10c5d,
         type: 3}
       propertyPath: cardFace.Array.data[3]
       value: 
-      objectReference: {fileID: 21300000, guid: 2788ce237e9bfd044abf23fe1f146884,
+      objectReference: {fileID: 21300000, guid: 35eed7d54b7f19c4090693bd58a8a81e,
         type: 3}
     - target: {fileID: 6326763825747052471, guid: 2b0c46a189fb6094599422217fa10c5d,
         type: 3}
       propertyPath: cardFace.Array.data[4]
       value: 
-      objectReference: {fileID: 21300000, guid: 382b3a6b52a6c9046826647f2815101f,
+      objectReference: {fileID: 21300000, guid: fbdd9e9a819831543af8193c8ba7c3f2,
         type: 3}
     - target: {fileID: 6326763825747052471, guid: 2b0c46a189fb6094599422217fa10c5d,
         type: 3}
       propertyPath: cardFace.Array.data[5]
       value: 
-      objectReference: {fileID: 21300000, guid: cb8ad1355d7bb7f47b62789c21147fd7,
+      objectReference: {fileID: 21300000, guid: 78c2d7032868fcf4cb752800e040ff8f,
         type: 3}
     - target: {fileID: 8802812060472219236, guid: 2b0c46a189fb6094599422217fa10c5d,
         type: 3}
@@ -6277,8 +6282,8 @@ Canvas:
   m_GameObject: {fileID: 1435221478}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 306345746}
+  m_RenderMode: 1
+  m_Camera: {fileID: 131220312}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

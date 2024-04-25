@@ -19,7 +19,8 @@ public class AssignCards : MonoBehaviour
     public CardGameBehaviour firstCard;
     [SerializeField] private TextMeshProUGUI movestext;
     public int moves = 0;
-    private float nextSceneTime = 3f;
+    private float nextSceneTime = 5f;
+    [SerializeField] private GameObject confettiScreen;
 
 
     // Start is called before the first frame update
@@ -55,7 +56,7 @@ public class AssignCards : MonoBehaviour
         
         if (flippedCards == startnumberofCards) // if win condition met do this
         {
-            //GameObject.SetActive(True);
+            confettiScreen.SetActive(true);
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
         }
     }
