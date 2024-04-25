@@ -56,6 +56,7 @@ public class AssignCards : MonoBehaviour
         
         if (flippedCards == startnumberofCards) // if win condition met do this
         {
+            AudioManager.instance.Play("WinFanfare");
             confettiScreen.SetActive(true);
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
         }
