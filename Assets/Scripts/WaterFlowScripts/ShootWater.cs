@@ -88,6 +88,7 @@ public class ShootWater : MonoBehaviour
         winText.gameObject.SetActive(true);
         if (!changedScene)
         {
+            AudioManager.instance.Play("WinFanfare");
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
             changedScene = true;
         }
@@ -98,6 +99,7 @@ public class ShootWater : MonoBehaviour
         loseText.gameObject.SetActive(true);
         if (!changedScene)
         {
+            AudioManager.instance.Play("LoseSound");
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
             changedScene = true;
         }
