@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DinoJump.unity
     guid: 8a07f33d7d03dd7438ce1c5ab62ea9ed
+  - enabled: 1
+    path: Assets/Scenes/MemoryFlip.unity
+    guid: 22ef45c4bb2e1c347bef999b03a67dc2
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
       guid: f2bb2f06cd3c27d4da96a36f1dd5de95, type: 2}

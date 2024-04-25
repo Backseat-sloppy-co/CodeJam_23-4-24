@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.015687268, g: 0.008708552, b: 0.017419921, a: 1}
+  m_IndirectSpecularColor: {r: 0.015690558, g: 0.008666629, b: 0.017383197, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1591,6 +1591,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1173cee06783ab645980f58378c123d0, type: 2}
   - {fileID: 11400000, guid: 4d4ae1f6b8ce53f4f9a56afa9adf1633, type: 2}
   - {fileID: 11400000, guid: fe4b2784aab6e8e4792c67b7ac4fbb3a, type: 2}
+  - {fileID: 11400000, guid: a6fb96defb759c346a59d508ef06abcb, type: 2}
   playButton: {fileID: 1394170844}
   selectButton: {fileID: 1486760013}
   cancelButton: {fileID: 1729005123}
