@@ -39,7 +39,7 @@ public class Cooking : MonoBehaviour
             Debug.Log("Collided with " + collision.gameObject.name);
             isCooking = true;
             StartCoroutine(CookingProcess(food));
-            FindObjectOfType<AudioManager>().Play("Sizzling");
+            AudioManager.instance.Play("Sizzling");
         }
     }
 
@@ -51,7 +51,7 @@ public class Cooking : MonoBehaviour
         {
             isCooking = false;
             StopAllCoroutines();
-            FindObjectOfType<AudioManager>().Stop("Sizzling");
+            AudioManager.instance.Stop("Sizzling");
         }
     }
 
@@ -62,14 +62,14 @@ public class Cooking : MonoBehaviour
         yield return StartCoroutine(CookOverTime(food.gameObject, food.cookingTime, food.materialCooked));
         food.cookingTime -= Time.deltaTime;
         Debug.Log("added score");
-        FindObjectOfType<AudioManager>().Play("Succes");
+        AudioManager.instance.Play("Succes");
         StartCoroutine(PlayConfetti());
         scoreManager.AddScore(1); // Add points when the food is cooked
 
         // Burn the food
         yield return StartCoroutine(CookOverTime(food.gameObject, food.burningTime, food.materialBurnt));
         food.burningTime -= Time.deltaTime;
-        FindObjectOfType<AudioManager>().Play("Fail");
+        AudioManager.instance.Play("Fail");
         scoreManager.SubtractScore(1); // Subtract points when the food is burnt
 
         //while (isCooking && food.cookingTime > 0)
