@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/WaterFlow2.unity
+    guid: a72f8692f00c54e459b4a04c2d27a4ab
+  - enabled: 1
     path: Assets/Scenes/Jasonlvl.unity
     guid: f66f3204b30034f459a59470e7d15512
   - enabled: 1

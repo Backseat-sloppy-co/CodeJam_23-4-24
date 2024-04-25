@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.XR.Haptics;
+using TMPro;
 
 public class ShootWater : MonoBehaviour
 {
     [SerializeField] GameObject waterPrefab;
     [SerializeField] GameObject topFill, targetFill, bottomFill;
     [SerializeField] GameObject firePoint;
+    [SerializeField] TMP_Text winText, loseText, fillMoreText, startText;
     Animator animator;
     private float timeSinceLastDrop = 0f;
     private bool readyToPour = false;
+    private float nextSceneTime = 1.5f;
 
 
     // Start is called before the first frame update
@@ -31,6 +34,8 @@ public class ShootWater : MonoBehaviour
         {
             timeSinceLastDrop = 0f;
             animator.SetBool("isPouring", true);
+            startText.gameObject.SetActive(false);
+            fillMoreText.gameObject.SetActive(false);
 
             if (readyToPour)
             {
@@ -50,20 +55,33 @@ public class ShootWater : MonoBehaviour
                     {
                         if (topFill.GetComponent<TopFill>().IsTopFilled())
                         {
-                            Debug.Log("You lose!");
+                            LoseCondition();
                         }
                         else
                         {
-                            Debug.Log("You win!");
+                            WinCondition();
                         }
                     }
                     else
                     {
-                        Debug.Log("Fill more!");
+                        fillMoreText.gameObject.SetActive(true);
                     }
                 }
             }
         }
     }
+
+    void WinCondition()
+    {
+        winText.gameObject.SetActive(true);
+        GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
+    }
+
+    void LoseCondition()
+    {
+        loseText.gameObject.SetActive(true);
+        GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
+    }
+
 
 }
