@@ -23,6 +23,7 @@ public class ShootWater : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        AudioManager.instance.Play("Flyby");
     }
 
     void WaterAnimationDone()
