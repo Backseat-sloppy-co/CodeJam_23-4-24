@@ -9,11 +9,13 @@ public class ShootWater : MonoBehaviour
     [SerializeField] GameObject waterPrefab;
     [SerializeField] GameObject topFill, targetFill, bottomFill;
     [SerializeField] GameObject firePoint;
-    [SerializeField] TMP_Text winText, loseText, fillMoreText, startText;
+    [SerializeField] TMP_Text winText, loseText, fillMoreText;
+    [SerializeField] GameObject startImage;
     Animator animator;
     private float timeSinceLastDrop = 0f;
     private bool readyToPour = false;
-    private float nextSceneTime = 1.5f;
+    private bool changedScene = false;
+    private float nextSceneTime = 4f;
 
 
     // Start is called before the first frame update
@@ -34,7 +36,7 @@ public class ShootWater : MonoBehaviour
         {
             timeSinceLastDrop = 0f;
             animator.SetBool("isPouring", true);
-            startText.gameObject.SetActive(false);
+            startImage.SetActive(false);
             fillMoreText.gameObject.SetActive(false);
 
             if (readyToPour)
@@ -74,13 +76,21 @@ public class ShootWater : MonoBehaviour
     void WinCondition()
     {
         winText.gameObject.SetActive(true);
-        GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
+        if (!changedScene)
+        {
+            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
+            changedScene = true;
+        }
     }
 
     void LoseCondition()
     {
         loseText.gameObject.SetActive(true);
-        GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
+        if (!changedScene)
+        {
+            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
+            changedScene = true;
+        }
     }
 
 
