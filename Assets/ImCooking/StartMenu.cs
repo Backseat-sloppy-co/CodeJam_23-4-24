@@ -10,7 +10,7 @@ public class StartMenu : MonoBehaviour
     public void StartGame()
     {
         // Enable the main camera and disable the start menu camera
-        mainCamera.enabled = true;
-        startMenuCamera.enabled = false;
+        mainCamera.depth = 1;
+        startMenuCamera.depth = -1;
     }
 }
