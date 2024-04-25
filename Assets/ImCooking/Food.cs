@@ -9,6 +9,8 @@ public class Food : MonoBehaviour
     public float cookingTime;
     public float burningTime;
     public Transform panTransform;
+    public Transform tableTransform;
+    public bool isOnPan = false;    
 
 
     private void Awake()
@@ -31,10 +33,20 @@ public class Food : MonoBehaviour
 
     private void OnMouseDown()
     {
-        // Move the food object to the pan when it's clicked
-        Vector3 panPosition = panTransform.position;
-        panPosition.y += 30.0f; // Adjust the y-axis as needed
-        transform.position = panTransform.position;
+        if (isOnPan)
+        {
+            // Move the food to a different location
+            transform.position = tableTransform.position; 
+        }
+        else
+        {
+            isOnPan = true;
+            // Move the food object to the pan when it's clicked
+            Vector3 panPosition = panTransform.position;
+            panPosition.y += 30.0f; // Adjust the y-axis as needed
+            transform.position = panTransform.position;
+
+        }
     }
 
 
