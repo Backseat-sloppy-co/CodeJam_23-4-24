@@ -4,10 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Undefined
+  - Water
   - Enemy
-  - Ground
-  - Penguin
   layers:
   - Default
   - TransparentFX
@@ -19,7 +17,7 @@ TagManager:
   - 
   - 
   - 
-  - Ground
+  - 
   - 
   - 
   - 

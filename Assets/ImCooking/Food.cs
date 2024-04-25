@@ -8,6 +8,7 @@ public class Food : MonoBehaviour
     public Material materialBurnt;
     public float cookingTime;
     public float burningTime;
+    public Transform panTransform;
 
 
     private void Awake()
@@ -27,6 +28,15 @@ public class Food : MonoBehaviour
         rb.drag = 0.0f;
         rb.useGravity = true;
     }
+
+    private void OnMouseDown()
+    {
+        // Move the food object to the pan when it's clicked
+        Vector3 panPosition = panTransform.position;
+        panPosition.y += 30.0f; // Adjust the y-axis as needed
+        transform.position = panTransform.position;
+    }
+
 
 }
 
