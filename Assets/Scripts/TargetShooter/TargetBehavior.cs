@@ -27,7 +27,7 @@ public class TargetBehavior : MonoBehaviour
     private bool isWin = false;
     private float nextSceneTime = 2f;
     public TMP_Text timeText;
-
+    public SpriteRenderer tryk;
 
     private void Start()
     {
@@ -62,6 +62,7 @@ public class TargetBehavior : MonoBehaviour
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.Log("Mouse is clicked");
+            Destroy(tryk);
 
             if (Physics.Raycast(ray, out hit))
             {
