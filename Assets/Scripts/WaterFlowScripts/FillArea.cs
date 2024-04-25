@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class FillArea : MonoBehaviour
 {
-    public int areaNumber; // Variable to store the area number
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected bool isFilled = false;
+
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Water")
         {
-            Debug.Log("You have filled the bottomFill with water in Area " + areaNumber);
+            isFilled = true;
         }
         else
         {
-            Debug.Log("No water detected in Area " + areaNumber);
+            isFilled = false;
         }
     }
 }
