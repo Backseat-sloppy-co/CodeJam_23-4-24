@@ -124,6 +124,4 @@ public class TargetBehavior : MonoBehaviour
        yield return new WaitForSeconds(firerate);
         weapon.GetComponent<Animator>().SetBool("isShoot", false);
     }
-
-    
 }
