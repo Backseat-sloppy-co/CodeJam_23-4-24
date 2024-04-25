@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 // This script was partially made by following a tutorial on YouTube by Mr. Kaiser
@@ -16,6 +17,9 @@ public class AssignCards : MonoBehaviour
     private Transform _transform;
     public int flippedCards;
     public CardGameBehaviour firstCard;
+    [SerializeField] private TextMeshProUGUI movestext;
+    public int moves = 0;
+    private float nextSceneTime = 3f;
 
 
     // Start is called before the first frame update
@@ -31,20 +35,27 @@ public class AssignCards : MonoBehaviour
             int randomIndex = Random.Range(0, faceIndex.Count);
             Debug.Log("Faceindex:" + faceIndex.Count);
             GameObject temp = Instantiate(card, _transform);
-            CardGameBehaviour tempstorage = temp.GetComponentInChildren<CardGameBehaviour>();
-            tempstorage.AssignFace(faceIndex[randomIndex]);
+            //CardGameBehaviour tempstorage = temp.GetComponentInChildren<CardGameBehaviour>();
+            //tempstorage.AssignFace(faceIndex[randomIndex]);
+            temp.GetComponent<CardGameBehaviour>().AssignFace(faceIndex[randomIndex]);
             faceIndex.RemoveAt(randomIndex);
             numberofCards--;
             Debug.Log("Number of cards: " + numberofCards);
         }
     }
+    public void UpdateMoves()
+    {
+        movestext.text = moves.ToString();
+    }
+    
 
     public void CheckifDone()
     {
         Debug.Log("Flipped cards: " + flippedCards);
-        if (flippedCards == startnumberofCards)
+        
+        if (flippedCards == startnumberofCards) // if win condition met do this
         {
-            Debug.Log("You have won!");
+            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
         }
     }
     
