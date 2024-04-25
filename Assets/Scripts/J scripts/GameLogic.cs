@@ -16,9 +16,12 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private GameObject winPanel;
     [SerializeField] private Button goNext;
 
+    private bool deathNext;
+
     // Start is called before the first frame update
     void Start()
     {
+        deathNext = false;
         winPanel.SetActive(false);
         gameBoard = GetComponent<GameBoardBehaviour>();
 
@@ -44,6 +47,14 @@ public class GameLogic : MonoBehaviour
         {
             gameBoard.resetBoard();
             triesText.text = "Forsøg: " + ++tries;
+            deathNext = true;
+        }
+
+        if (deathNext)
+        {
+            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene());
+            deathNext = false;
+            return;
         }
     }
     private void Win()

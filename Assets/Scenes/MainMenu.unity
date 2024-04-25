@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.015854646, g: 0.008884757, b: 0.017668495, a: 1}
+  m_IndirectSpecularColor: {r: 0.015687268, g: 0.008708552, b: 0.017419921, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1705,10 +1705,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameElements:
-  - {fileID: 6713756692365608698, guid: ad1d0745d8b68044ca24c6d6cd7dd41f, type: 3}
-  - {fileID: 6713756692365608698, guid: 8e58bc22bc8563342bd30c2b594145cd, type: 3}
-  - {fileID: 6713756692365608698, guid: c2ff10e90c09f2d46a0b1131b0582aac, type: 3}
-  - {fileID: 6713756692365608698, guid: f2eb7991711d77147b36fedc8b6a3a6b, type: 3}
+  - {fileID: 11400000, guid: dac24614def49b848b8bee98ea25b2c2, type: 2}
+  - {fileID: 11400000, guid: a6fb96defb759c346a59d508ef06abcb, type: 2}
+  - {fileID: 11400000, guid: 1173cee06783ab645980f58378c123d0, type: 2}
+  - {fileID: 11400000, guid: 4d4ae1f6b8ce53f4f9a56afa9adf1633, type: 2}
+  - {fileID: 11400000, guid: fe4b2784aab6e8e4792c67b7ac4fbb3a, type: 2}
+  - {fileID: 11400000, guid: 83e17307bde524942810ab2939512492, type: 2}
+  - {fileID: 11400000, guid: 89ca2ac0c7ea61e4b8eee490179f6ef7, type: 2}
   playButton: {fileID: 567096801}
   selectButton: {fileID: 448350727}
   cancelButton: {fileID: 1566043424}
