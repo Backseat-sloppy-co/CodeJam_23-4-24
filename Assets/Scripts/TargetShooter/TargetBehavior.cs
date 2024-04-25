@@ -97,7 +97,7 @@ public class TargetBehavior : MonoBehaviour
         {
            AudioManager.instance.Play("Beep");
             isWin = true;
-            timeText.text = "Time: " + time;
+            timeText.text = "Tid: " + time;
             Debug.Log("All targets have been hit in " + time + " secounds");
            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
         }
