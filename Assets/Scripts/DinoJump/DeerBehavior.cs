@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
 using UnityEngine.UIElements;
@@ -19,14 +21,18 @@ public class DeerBehavior : MonoBehaviour
 
     private float nextSceneTime = 2f;
 
-    public Sound[] horseSound;
+    private bool isGameOverStarted = false;
+
+
 
     void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
         rb = GetComponent<Rigidbody>();
         col = GetComponent<CapsuleCollider>();
-        
+
+
+
     }
 
     void Update()
@@ -56,13 +62,15 @@ public class DeerBehavior : MonoBehaviour
         transform.position = new Vector3(0, transform.position.y, 0);
         transform.rotation = rotation;
 
-        if (lifeCounter == 0)
+        if (lifeCounter == 0 && !isGameOverStarted)
         {
             Debug.Log("Game Over!");
 
-     
+            isGameOverStarted = true;
 
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
+
+
 
         }
 
@@ -75,8 +83,15 @@ public class DeerBehavior : MonoBehaviour
             Debug.Log("Penguin Destroyed!");
             lifeCounter--;
             uiManager.UpdateLifeIcons(lifeCounter);
-           // horseSound[Random.Range(0, horseSound.Length)].Play();
 
+            // Array of sound names
+            string[] horseSounds = { "horse1", "horse2", "horse3" };
+
+            // Select a random sound name
+            string randomSound = horseSounds[Random.Range(0, horseSounds.Length)];
+
+            // Play the random sound
+            AudioManager.instance.Play(randomSound);
         }
     }
 }
