@@ -4024,12 +4024,12 @@ GameObject:
   - component: {fileID: 543450652583808029}
   - component: {fileID: 1116417016}
   m_Layer: 0
-  m_Name: dronebomb
+  m_Name: REMOVE DRONE BOMB IF NOT OK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &919132149079626863
 GameObject:
   m_ObjectHideFlags: 0
@@ -4875,12 +4875,12 @@ GameObject:
   - component: {fileID: 5191147665634742965}
   - component: {fileID: 405125820}
   m_Layer: 0
-  m_Name: tank
+  m_Name: tankUwU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!137 &3395363711478149260
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
