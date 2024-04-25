@@ -15,6 +15,7 @@ public class ShootWater : MonoBehaviour
     private float timeSinceLastDrop = 0f;
     private bool readyToPour = false;
     private bool changedScene = false;
+    private bool pouringSoundPlaying = false;
     private float nextSceneTime = 4f;
 
 
@@ -38,15 +39,24 @@ public class ShootWater : MonoBehaviour
             animator.SetBool("isPouring", true);
             startImage.SetActive(false);
             fillMoreText.gameObject.SetActive(false);
+           
 
             if (readyToPour)
             {
                 Instantiate(waterPrefab, firePoint.transform.position, Quaternion.identity);
+                if (!pouringSoundPlaying)
+                {
+                    AudioManager.instance.Play("PourWater");
+                    pouringSoundPlaying = true;
+                }
+
             }
         }
         else
         {
             timeSinceLastDrop += Time.deltaTime;
+            AudioManager.instance.Stop("PourWater");
+            pouringSoundPlaying = false;
             animator.SetBool("isPouring", false);
             readyToPour = false;
             if (timeSinceLastDrop > 1f)
