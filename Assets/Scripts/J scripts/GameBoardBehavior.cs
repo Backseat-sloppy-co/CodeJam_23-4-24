@@ -91,19 +91,19 @@ public class GameBoardBehaviour : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            manuelInput.x += 0.1f * InputSpeed;
+            manuelInput.x += 1f * InputSpeed;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            manuelInput.x += -0.1f * InputSpeed;
+            manuelInput.x += -1f * InputSpeed;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            manuelInput.z += 0.1f * InputSpeed;
+            manuelInput.z += 1f * InputSpeed;
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
-            manuelInput.z += -0.1f * InputSpeed;
+            manuelInput.z += -1f * InputSpeed;
         }
 
         gameBoard.transform.rotation = Quaternion.Slerp(gameBoard.transform.rotation, Quaternion.Euler(manuelInput), Time.deltaTime * manuelDamp);
