@@ -10,8 +10,9 @@ public class Food : MonoBehaviour
     public float burningTime;
     public Transform panTransform;
     public Transform tableTransform;
-    public bool isOnPan = false;    
-
+    public bool isOnPan = false;
+    
+    public ScoreManager scoreManager; // Reference to the ScoreManager
 
     private void Awake()
     {
@@ -37,6 +38,7 @@ public class Food : MonoBehaviour
         {
             // Move the food to a different location
             transform.position = tableTransform.position; 
+            scoreManager.cookedFood++;
         }
         else
         {

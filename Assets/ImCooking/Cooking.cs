@@ -11,6 +11,7 @@ public class Cooking : MonoBehaviour
     public Material materialCooked;
     public Material materialBurnt;
     public bool isCooking = false; // Whether the food is in contact with the pan
+    public ParticleSystem confetti; 
 
     public ScoreManager scoreManager; // Reference to the ScoreManager
 
@@ -19,7 +20,7 @@ public class Cooking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        confetti.Stop();
     }
 
     // Update is called once per frame
@@ -60,11 +61,14 @@ public class Cooking : MonoBehaviour
         yield return StartCoroutine(CookOverTime(food.gameObject, food.cookingTime, food.materialCooked));
         food.cookingTime -= Time.deltaTime;
         Debug.Log("added score");
+        FindObjectOfType<AudioManager>().Play("Succes");
+        StartCoroutine(PlayConfetti());
         scoreManager.AddScore(1); // Add points when the food is cooked
 
         // Burn the food
         yield return StartCoroutine(CookOverTime(food.gameObject, food.burningTime, food.materialBurnt));
         food.burningTime -= Time.deltaTime;
+        FindObjectOfType<AudioManager>().Play("Fail");
         scoreManager.SubtractScore(1); // Subtract points when the food is burnt
 
         //while (isCooking && food.cookingTime > 0)
@@ -79,6 +83,14 @@ public class Cooking : MonoBehaviour
         //}
 
     }
+
+
+    public IEnumerator PlayConfetti()
+    {
+       confetti.Play();
+        yield return new WaitForSeconds(2);
+        confetti.Stop();
+    }   
 
 
     public IEnumerator CookOverTime(GameObject foodObject, float duration, Material targetMaterial)
