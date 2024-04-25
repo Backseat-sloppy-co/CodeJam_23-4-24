@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public List<string> sceneNames = new List<string>();
     [HideInInspector] public bool selectedGame = false;
 
-    private void Start()
+    private void Awake()
     {
         if (instance == null)
         {

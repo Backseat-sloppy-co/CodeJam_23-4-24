@@ -8,7 +8,7 @@ using TMPro;
 public class MainMenuBehaviour : MonoBehaviour
 {
     [Header("Create a scriptable object for each scene")]
-    public List<GameInfo> gameElements = new List<GameInfo>();
+    public List<GameElementScriptableObject> gameElements = new List<GameElementScriptableObject>();
 
     [Header("In-Scene references")]
     public Button playButton;
