@@ -55,6 +55,7 @@ public class AssignCards : MonoBehaviour
         
         if (flippedCards == startnumberofCards) // if win condition met do this
         {
+            //GameObject.SetActive(True);
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
         }
     }
