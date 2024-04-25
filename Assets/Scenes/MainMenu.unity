@@ -1302,7 +1302,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 478482404c9cd7040afa1559650d6620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameElements: []
+  gameElements:
+  - {fileID: 11400000, guid: dac24614def49b848b8bee98ea25b2c2, type: 2}
+  - {fileID: 11400000, guid: 1173cee06783ab645980f58378c123d0, type: 2}
+  - {fileID: 11400000, guid: 4d4ae1f6b8ce53f4f9a56afa9adf1633, type: 2}
+  - {fileID: 11400000, guid: fe4b2784aab6e8e4792c67b7ac4fbb3a, type: 2}
   playButton: {fileID: 1394170844}
   selectButton: {fileID: 1486760013}
   cancelButton: {fileID: 1729005123}
