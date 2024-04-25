@@ -43,7 +43,7 @@ public class GameLogic : MonoBehaviour
         else if (deathBox.bounds.Contains(ball.transform.position))
         {
             gameBoard.resetBoard();
-            triesText.text = "Atempts: " + ++tries;
+            triesText.text = "Forsøg: " + ++tries;
         }
     }
     private void Win()
