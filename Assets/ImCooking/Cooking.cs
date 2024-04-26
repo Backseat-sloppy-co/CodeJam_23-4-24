@@ -88,8 +88,8 @@ public class Cooking : MonoBehaviour
 
     public IEnumerator PlayConfetti()
     {
-       confetti.Play();
-        yield return new WaitForSeconds(2);
+        confetti.Play();
+        yield return new WaitForSeconds(1);
         confetti.Stop();
     }   
 

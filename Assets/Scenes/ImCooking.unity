@@ -1047,6 +1047,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -207.143, z: 0}
+--- !u!1001 &246717201
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2651484927009454057, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7929031606066259247, guid: fa4b465b790f34e4c8e93424762e8c97,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fa4b465b790f34e4c8e93424762e8c97, type: 3}
 --- !u!1 &280381730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialCooked: {fileID: 2100000, guid: be24f14357444a5448e4f1f53a25f3a2, type: 2}
-  materialBurnt: {fileID: 2100000, guid: 3e29a0b329ddf9b45aa8bf6e57a7c691, type: 2}
+  materialBurnt: {fileID: 2100000, guid: 412ef6f126a19734daa5faca1ed54377, type: 2}
   cookingTime: 5
   burningTime: 5
   panTransform: {fileID: 540881859}
@@ -1550,15 +1618,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 236026166bba16c4fb120ade74e534bf, type: 2}
+  m_sharedMaterial: {fileID: -8256080835929749750, guid: 236026166bba16c4fb120ade74e534bf,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1581,7 +1650,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -4049,7 +4118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialCooked: {fileID: 2100000, guid: be24f14357444a5448e4f1f53a25f3a2, type: 2}
-  materialBurnt: {fileID: 2100000, guid: 3e29a0b329ddf9b45aa8bf6e57a7c691, type: 2}
+  materialBurnt: {fileID: 2100000, guid: 412ef6f126a19734daa5faca1ed54377, type: 2}
   cookingTime: 5
   burningTime: 5
   panTransform: {fileID: 540881859}
@@ -4239,8 +4308,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lav mad med Chason Dorito
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 236026166bba16c4fb120ade74e534bf, type: 2}
+  m_sharedMaterial: {fileID: -8256080835929749750, guid: 236026166bba16c4fb120ade74e534bf,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7750,3 +7820,4 @@ SceneRoots:
   - {fileID: 1355438387}
   - {fileID: 993201744}
   - {fileID: 636920394}
+  - {fileID: 246717201}
