@@ -52,7 +52,9 @@ public class ScoreManager : MonoBehaviour
 
     public void NextScene()
     {
+        Screen.orientation = ScreenOrientation.Portrait;
         GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(1f));
+
     }
 
 }
