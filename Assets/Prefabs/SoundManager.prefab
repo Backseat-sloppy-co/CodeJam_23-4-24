@@ -117,3 +117,43 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Horse1
+    clip: {fileID: 8300000, guid: 3c89fe25b05cc814990d3bf574410a1e, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Horse2
+    clip: {fileID: 8300000, guid: 828d2d0af7d4906488958968cc9b08bb, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Horse3
+    clip: {fileID: 8300000, guid: ad82928c2a5db1847b3be8fd996ada5f, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: 1b1dec8e5bfd8c54891d8fd0b57eeddf, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Down
+    clip: {fileID: 8300000, guid: b385bbefcacc28e42aa94f45097341ef, type: 3}
+    mixer: {fileID: -5870040058163568950, guid: 2543a1b74c7fecc449dab232534cfa04,
+      type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
