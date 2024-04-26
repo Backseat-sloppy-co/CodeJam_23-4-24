@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: ImCooking
   m_EditorClassIdentifier: 
   title: ImCooking
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6a4fbd4b88253dd4ca031ec8c387526a, type: 3}
   sceneName: ImCooking
