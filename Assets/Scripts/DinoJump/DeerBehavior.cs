@@ -116,4 +116,4 @@ public class DeerBehavior : MonoBehaviour
         }
     }
 }
-// this code was written by me with the help of copilot.
+// this code was written with the help of copilot.
