@@ -8,7 +8,10 @@ public class EnemySpawner : MonoBehaviour
     public GameObject enemyPrefab;
     public float defSpawnRate = 2f;//needs to be larger than 1
     private float spawnRate;
+    private float negativeSpawnRate = -1f;
     public float timer;
+
+    private float outOfBounds = -10f;
 
     public float enemySpeed = 5f;
 
@@ -17,6 +20,9 @@ public class EnemySpawner : MonoBehaviour
     public Transform upperSpawn;
     public Transform lowerSpawn;
 
+    private Vector3 upperOffset = new Vector3(0, 90, 180);
+    private Vector3 lowerOffset = new Vector3(0, 90, 0);
+
     [Range(1, 8)]
     public int barrelCountMin = 1;
     [Range(1, 8)]
@@ -24,6 +30,8 @@ public class EnemySpawner : MonoBehaviour
 
     private int lowerInRow = 0;
     private  int upperInRow = 0;
+    private int lowerInRowMax = 2;
+    private int upperInRowMax = 2;
 
     private void Start()
     {
@@ -39,11 +47,11 @@ public class EnemySpawner : MonoBehaviour
         {
             if (isUpper)
             {
-                Instantiate(enemyPrefab, new Vector3(enemy.transform.position.x, enemy.transform.position.y - i, enemy.transform.position.z + i / 2f), Quaternion.Euler(new Vector3(0, 90, 180)), enemy.transform);
+                Instantiate(enemyPrefab, new Vector3(enemy.transform.position.x, enemy.transform.position.y - i, enemy.transform.position.z + i / 2f), Quaternion.Euler(upperOffset), enemy.transform);
             }
             else
             {
-                Instantiate(enemyPrefab, new Vector3(enemy.transform.position.x, enemy.transform.position.y + i, enemy.transform.position.z + i / 2f), Quaternion.Euler(new Vector3(0, 90, 0)), enemy.transform);
+                Instantiate(enemyPrefab, new Vector3(enemy.transform.position.x, enemy.transform.position.y + i, enemy.transform.position.z + i / 2f), Quaternion.Euler(lowerOffset), enemy.transform);
             }
             
         }
@@ -57,13 +65,13 @@ public class EnemySpawner : MonoBehaviour
         if(timer >= spawnRate)
         {
             var rand = Random.value;
-            if(upperInRow >= 2)
+            if(upperInRow >= upperInRowMax)
             {
                 SpawnBarrel(lowerSpawn.position, false);
                 lowerInRow++;
                 upperInRow = 0;
             }
-            else if(lowerInRow >= 2)
+            else if(lowerInRow >= lowerInRowMax)
             {
                 SpawnBarrel(upperSpawn.position, true);
                 upperInRow++;
@@ -82,13 +90,13 @@ public class EnemySpawner : MonoBehaviour
                 lowerInRow = 0;
             }
 
-            spawnRate = Random.Range(-1f + defSpawnRate, defSpawnRate);
+            spawnRate = Random.Range(negativeSpawnRate + defSpawnRate, defSpawnRate);
             timer = 0;
         }
 
         foreach(var enemy in enemies)
         {
-            if(enemy.transform.position.x < -10)
+            if(enemy.transform.position.x < outOfBounds)
             {
                 Destroy(enemy);
                 enemies.Remove(enemy);
