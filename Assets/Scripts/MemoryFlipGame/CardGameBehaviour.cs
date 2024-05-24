@@ -10,81 +10,82 @@ using UnityEngine.UI;
 // This script was also made with the help of Github Copilot.
 public class CardGameBehaviour : MonoBehaviour
 {
-    [SerializeField] private Button button;
-    [SerializeField] private Sprite cardBack;
-    [SerializeField] private Sprite[] cardFace;
-    [SerializeField] private AssignCards assignCards;
+    [SerializeField] private Button button; // Button for the card
+    [SerializeField] private Sprite cardBack; // Card back sprite
+    [SerializeField] private Sprite[] cardFace; // Card face sprites
+    [SerializeField] private AssignCards assignCards; // AssignCards script
     
     
-    private bool isFlipped = false;
-    private bool isMatched = false;
-    private int faceIndex;
+    private bool isFlipped = false; // bool for if the card is flipped
+    private bool isMatched = false; // bool for if the card is matched
+    private int faceIndex; // Index for the face of the card
 
     public void Start()
     {
-        button.image.sprite = cardBack;
+        button.image.sprite = cardBack; // Set the card to the card back sprite
     }
 
     public void FlipCard()
     {
-        if (!isFlipped && !isMatched)
+        if (!isFlipped && !isMatched) // If the card is not flipped and not matched
         {
-            Flip();
-            CheckMatch();
+            Flip(); // Flip the card
+            CheckMatch(); // Check if the card is a match
         }
        
     }
  
-    public void CheckMatch()
+    public void CheckMatch() // Check if the card is a match
     {
-        if (assignCards.firstCard == null)
+        if (assignCards.firstCard == null) // If the first card is null
         {
-            assignCards.firstCard = this;
+            assignCards.firstCard = this; // Set the first card to this card
         }
-        else if (assignCards.firstCard.faceIndex == faceIndex && assignCards.firstCard != this)
+        else if (assignCards.firstCard.faceIndex == faceIndex && assignCards.firstCard != this) // If the first card face index is the same as this card face index
+                                                                                                // and the first card is not this card
         {
-            Match();
-            assignCards.firstCard.Match();
-            assignCards.firstCard = null;
+            Match(); // Match this card
+            assignCards.firstCard.Match(); // Match the first card
+            assignCards.firstCard = null; // Set the first card to null
         }
-        else
+        else // If the first card is not null and the face indexes are not the same
         {
-            Unflip();
-            assignCards.firstCard.Unflip();
-            assignCards.firstCard = null;
+            Unflip(); // Unflip this card
+            assignCards.firstCard.Unflip(); // Unflip the first card
+            assignCards.firstCard = null; // Set the first card to null
         }
     }
 
  
-    public void AssignFace(int index)
+    public void AssignFace(int index) 
     {
-        faceIndex = index;
+        faceIndex = index; // Assign the index gotten from AssignCards to the index in this script
     }
     private void Unflip()
     {
-        StartCoroutine(Wait1Second());
+        StartCoroutine(Wait1Second()); // Wait 1 second before flipping the card back
     }
 
     private void Flip()
     {
-        button.image.sprite = cardFace[faceIndex];
-        isFlipped = true;
-        assignCards.moves++;
-        assignCards.UpdateMoves();
+        button.image.sprite = cardFace[faceIndex]; // Set the card to the face index
+        isFlipped = true; // Set the card to flipped
+        assignCards.moves++; // Increase the number of moves
+        assignCards.UpdateMoves(); // Update the moves text
     }
 
     public void Match()
     {
-        isMatched = true;
-        assignCards.flippedCards++;
-        assignCards.CheckifDone();
+        isMatched = true; // Set the card to matched
+        assignCards.flippedCards++; // Increase the number of flipped cards
+        assignCards.CheckifDone(); // Check if the game is done
     }
 
     public IEnumerator Wait1Second()
     {
-        yield return new WaitForSeconds(1);
-        button.image.sprite = cardBack;
-        isFlipped = false;
+        yield return new WaitForSeconds(1); // Wait for 1 second
+        button.image.sprite = cardBack; // Set the card to the card back sprite
+        isFlipped = false; // Set the card to not flipped
     }
 
  

@@ -17,10 +17,10 @@ public class AssignCards : MonoBehaviour
     private Transform _transform;
     public int flippedCards;
     public CardGameBehaviour firstCard;
-    [SerializeField] private TextMeshProUGUI movestext;
+    [SerializeField] private TextMeshProUGUI movestext; // Text for number of moves
     public int moves = 0;
     private float nextSceneTime = 5f;
-    [SerializeField] private GameObject confettiScreen;
+    [SerializeField] private GameObject confettiScreen; // Canvas with a particle system for confetti
 
     // CardFaceIndexes
     private int chickenIndex = 0;
@@ -34,40 +34,40 @@ public class AssignCards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        flippedCards = 0;
-        _transform = GetComponent<Transform>();
+        flippedCards = 0; // Set flipped cards to 0
+        _transform = GetComponent<Transform>(); // Get the transform of the object
         // 6 pairs of cards
         faceIndex = new List<int> { chickenIndex, chickenIndex, deerIndex, deerIndex, dogIndex, dogIndex, horseIndex, horseIndex, penguinIndex, penguinIndex, tigerIndex, tigerIndex }; 
 
-        startnumberofCards = numberofCards;
-        for (int i = 0; i < startnumberofCards; i++)
+        startnumberofCards = numberofCards; // Save the number of cards at the start
+        for (int i = 0; i < startnumberofCards; i++) // loop through the amount of cards we want
         {
-            int randomIndex = Random.Range(0, faceIndex.Count);
-            Debug.Log("Faceindex:" + faceIndex.Count);
-            GameObject temp = Instantiate(card, _transform);
+            int randomIndex = Random.Range(0, faceIndex.Count); // Get a random index from the list
+            Debug.Log("Faceindex:" + faceIndex.Count); // Debug the amount of faces in the list
+            GameObject temp = Instantiate(card, _transform); // Instantiate a card
             //CardGameBehaviour tempstorage = temp.GetComponentInChildren<CardGameBehaviour>();
             //tempstorage.AssignFace(faceIndex[randomIndex]);
-            temp.GetComponent<CardGameBehaviour>().AssignFace(faceIndex[randomIndex]);
-            faceIndex.RemoveAt(randomIndex);
-            numberofCards--;
-            Debug.Log("Number of cards: " + numberofCards);
+            temp.GetComponent<CardGameBehaviour>().AssignFace(faceIndex[randomIndex]); // Assign the index to the card
+            faceIndex.RemoveAt(randomIndex); // Remove the index from the list
+            numberofCards--; // Decrease the number of cards
+            Debug.Log("Number of cards: " + numberofCards); // Debug the number of cards
         }
     }
-    public void UpdateMoves()
+    public void UpdateMoves() // Update the moves text
     {
-        movestext.text = moves.ToString();
+        movestext.text = moves.ToString(); 
     }
     
 
-    public void CheckifDone()
+    public void CheckifDone() // Check if the game is done
     {
-        Debug.Log("Flipped cards: " + flippedCards);
+        Debug.Log("Flipped cards: " + flippedCards); // Debug the flipped cards
         
         if (flippedCards == startnumberofCards) // if win condition met do this
         {
-            AudioManager.instance.Play("WinFanfare");
-            confettiScreen.SetActive(true);
-            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
+            AudioManager.instance.Play("WinFanfare"); // Play the win fanfare
+            confettiScreen.SetActive(true); // Activate the confetti screen
+            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime)); // Load the next scene
         }
     }
     
