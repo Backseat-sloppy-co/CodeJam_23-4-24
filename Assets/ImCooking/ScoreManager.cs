@@ -4,13 +4,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+//The following script has been made with assistance from GitHub Copilot
 public class ScoreManager : MonoBehaviour
 {
     public int score = 0;
     public TMP_Text scoreText;
     public int cookedFood = 0;
     public GameObject endButton;
-
+    public int RequiredFood = 4;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        if (cookedFood == 4) //CHANGE MAGIC NUMER TO A VARIABLE
+        if (cookedFood == RequiredFood) //CHANGE MAGIC NUMER TO A VARIABLE
         {
             GameOver();
         }

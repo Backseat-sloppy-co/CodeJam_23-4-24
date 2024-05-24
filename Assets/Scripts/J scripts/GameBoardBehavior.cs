@@ -4,10 +4,11 @@ using UnityEngine.UI;
 
 public class GameBoardBehaviour : MonoBehaviour
 {
+    //all code is written with the help of copilot and the unity documentation.
+
     [Header("ref")]
     [SerializeField] private GameObject gameBoard;
     [SerializeField] private TMP_Text gyroText;
-    [SerializeField] private Button reset;
     [SerializeField] private GameObject gizmo;
     private GameObject ball;
     public GameObject ballPrefab;
@@ -23,9 +24,10 @@ public class GameBoardBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        reset.onClick.AddListener(resetBoard);
 
         gameLogic = GetComponent<GameLogic>();
+
+        //if the game is running on android enable gyro
 
         if (Application.platform == RuntimePlatform.Android)
         {
@@ -40,6 +42,7 @@ public class GameBoardBehaviour : MonoBehaviour
         }
     }
 
+    //this runnes when the calibrations is done, was also used when testing the game on the computer.
     public void resetBoard()
     {
         Destroy(ball);
@@ -52,6 +55,7 @@ public class GameBoardBehaviour : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //if gyro is enabled use gyro controlles else use keyboard input.
         if (Input.gyro.enabled) 
         {
             RuntimeGyroBoard();
@@ -63,7 +67,7 @@ public class GameBoardBehaviour : MonoBehaviour
             RuntimeInputBoard();
             gyroText.text = "Gyro: " + manuelInput;
         }
-
+        //reset board with space for debugging purposes.
         if (Input.GetKey(KeyCode.Space))
         {
             resetBoard();
@@ -72,6 +76,8 @@ public class GameBoardBehaviour : MonoBehaviour
 
     private void RuntimeGyroBoard()
     {
+        //get gyro input and transform it to a vector3
+
         float x, y, z;
         Vector3 gyro = Input.gyro.attitude.eulerAngles;
 
@@ -79,9 +85,11 @@ public class GameBoardBehaviour : MonoBehaviour
         y = 0;
         z = -gyro.y;
 
+        //remap the x,y,z to based on gyro input with help from the unity documentation.
+
         Vector3 inputGyro = new Vector3(x, y, z);
 
-        //rotate board based on gyro input in a sertain amount of time
+        //rotate board based on gyro input over time.
         gameBoard.transform.rotation = Quaternion.Slerp(gameBoard.transform.rotation, Quaternion.Euler(inputGyro), Time.deltaTime * gyroDamp);
 
         gizmo.transform.rotation = Quaternion.Slerp(gizmo.transform.rotation, Quaternion.Euler(inputGyro), Time.deltaTime * gyroDamp);
@@ -89,6 +97,7 @@ public class GameBoardBehaviour : MonoBehaviour
 
     private void RuntimeInputBoard()
     {
+        //uses arrow keys to move the board on two axis, x and z.
         if (Input.GetKey(KeyCode.UpArrow))
         {
             manuelInput.x += 1f * InputSpeed;
@@ -106,8 +115,9 @@ public class GameBoardBehaviour : MonoBehaviour
             manuelInput.z += -1f * InputSpeed;
         }
 
+        //rotate board based on input over time.
         gameBoard.transform.rotation = Quaternion.Slerp(gameBoard.transform.rotation, Quaternion.Euler(manuelInput), Time.deltaTime * manuelDamp);
-
+        //rotates debugging gizmo based on input.
         gizmo.transform.rotation = Quaternion.Slerp(gizmo.transform.rotation, Quaternion.Euler(manuelInput), Time.deltaTime * manuelDamp);
     }
 }

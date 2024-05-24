@@ -20,6 +20,8 @@ public class MainMenuBehaviour : MonoBehaviour
     public Transform rightPos;
     public Transform leftPos;
     public GameObject gameElementPrefab;
+    private float lerpSpeed = 5f;
+    private float minDistance = 0.1f;
 
     private void Start()
     {
@@ -38,7 +40,7 @@ public class MainMenuBehaviour : MonoBehaviour
         //setting up the buttonts gamelements
         foreach (var gameElement in gameElements)
         {
-            var ge = Instantiate(gameElementPrefab, selectCanvas.GetChild(0));
+            var ge = Instantiate(gameElementPrefab, selectCanvas.GetChild(0));//to put the prefabs in the grid layout
             ge.GetComponentInChildren<TMP_Text>().text = gameElement.title;
 
             var image = ge.GetComponent<Image>();
@@ -87,9 +89,9 @@ public class MainMenuBehaviour : MonoBehaviour
 
     private IEnumerator MoveTowards(Transform target, Transform pivot)
     {
-        while (Vector3.Distance(target.position, pivot.position) > 0.1f)
+        while (Vector3.Distance(target.position, pivot.position) > minDistance)
         {
-            target.position = Vector3.Lerp(target.position, pivot.position, Time.deltaTime * 5);
+            target.position = Vector3.Lerp(target.position, pivot.position, Time.deltaTime * lerpSpeed);
             yield return null;
         }
     }
