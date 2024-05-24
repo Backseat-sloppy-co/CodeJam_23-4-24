@@ -20,6 +20,7 @@ public class MainMenuBehaviour : MonoBehaviour
     public Transform rightPos;
     public Transform leftPos;
     public GameObject gameElementPrefab;
+    private float lerpSpeed = 5f;
 
     private void Start()
     {
@@ -89,7 +90,7 @@ public class MainMenuBehaviour : MonoBehaviour
     {
         while (Vector3.Distance(target.position, pivot.position) > 0.1f)
         {
-            target.position = Vector3.Lerp(target.position, pivot.position, Time.deltaTime * 5);
+            target.position = Vector3.Lerp(target.position, pivot.position, Time.deltaTime * lerpSpeed);
             yield return null;
         }
     }
