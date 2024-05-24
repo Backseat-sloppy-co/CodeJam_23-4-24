@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour
 {
+    //all code is written with the help of copilot and the unity documentation.
+
     private GameBoardBehaviour gameBoard;
     [HideInInspector] public GameObject ball;
     private int tries = 0;
@@ -38,6 +40,8 @@ public class GameLogic : MonoBehaviour
             return;
         }
         //when ball enters winbox collition trigger
+        //this is done in this script because i didnt want 2 scripts with one function on using collision enter for the win and lose trigger boxes.
+
         if (winBox.bounds.Contains(ball.transform.position))
         {
             Debug.Log("enterend win box");
@@ -50,9 +54,10 @@ public class GameLogic : MonoBehaviour
             deathNext = true;
         }
 
+        //when ball enters deathbox collition trigger go to next level.
         if (deathNext)
         {
-            GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene());
+            NextLevel();
             deathNext = false;
             return;
         }
