@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+
+//The following script has been made with assistance from GitHub Copilot
 public class Food : MonoBehaviour
 {
     public Material materialCooked;
@@ -11,6 +13,7 @@ public class Food : MonoBehaviour
     public Transform panTransform;
     public Transform tableTransform;
     public bool isOnPan = false;
+    public float PanPositionY = 30.0f;
     
     public ScoreManager scoreManager; // Reference to the ScoreManager
 
@@ -45,7 +48,7 @@ public class Food : MonoBehaviour
             isOnPan = true;
             // Move the food object to the pan when it's clicked
             Vector3 panPosition = panTransform.position;
-            panPosition.y += 30.0f; // Adjust the y-axis as needed
+            panPosition.y += PanPositionY; // Adjust the y-axis as needed
             transform.position = panTransform.position;
 
         }

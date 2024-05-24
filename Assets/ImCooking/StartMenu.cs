@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//The following script has been made with assistance from GitHub Copilot
 public class StartMenu : MonoBehaviour
 {
     public Camera mainCamera; // Reference to the main camera
