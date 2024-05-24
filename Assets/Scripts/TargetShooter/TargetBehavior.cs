@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// This script was made with the help of Github Copilot
 class Target
+ 
     // this class is used to store the target gameobject and a bool that is used to check if the target is the target that is currently set
 {
     public GameObject target;
