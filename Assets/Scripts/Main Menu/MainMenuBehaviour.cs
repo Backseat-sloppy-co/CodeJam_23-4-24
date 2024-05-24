@@ -40,7 +40,7 @@ public class MainMenuBehaviour : MonoBehaviour
         //setting up the buttonts gamelements
         foreach (var gameElement in gameElements)
         {
-            var ge = Instantiate(gameElementPrefab, selectCanvas.GetChild(0));
+            var ge = Instantiate(gameElementPrefab, selectCanvas.GetChild(0));//to put the prefabs in the grid layout
             ge.GetComponentInChildren<TMP_Text>().text = gameElement.title;
 
             var image = ge.GetComponent<Image>();
