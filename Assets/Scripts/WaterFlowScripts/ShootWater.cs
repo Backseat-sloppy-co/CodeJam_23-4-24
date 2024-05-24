@@ -83,7 +83,7 @@ public class ShootWater : MonoBehaviour
                     }
                 }
             }
-        }-
+        }
     }
 
     void WinCondition()
