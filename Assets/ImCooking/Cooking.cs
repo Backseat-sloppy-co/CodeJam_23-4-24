@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//The following script has been made with assistance from GitHub Copilot
 public class Cooking : MonoBehaviour
 {
    
