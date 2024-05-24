@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//The following script has been made with assistance from GitHub Copilot
 public class CameraController : MonoBehaviour
 {
     public float speed = 10.0f; // The speed at which the camera moves
