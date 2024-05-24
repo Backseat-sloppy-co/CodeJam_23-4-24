@@ -8,11 +8,13 @@ public class PenguinBehavior : MonoBehaviour
     public float penguinRotaionSpeed;
     public float penguinSize;
 
+    private float penguinPosition = -15;
+
     void Update()
     {
         transform.position += Vector3.left * penguinSpeed * Time.deltaTime;
 
-        if (transform.position.x < -15)
+        if (transform.position.x < penguinPosition)
         {
             Destroy(gameObject);
             Debug.Log("Crisis Averted!!!");

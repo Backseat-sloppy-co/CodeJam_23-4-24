@@ -23,6 +23,8 @@ public class DeerBehavior : MonoBehaviour
 
     private bool isGameOverStarted = false;
 
+    private float waitTime = 0.5f;
+
 
 
     void Start()
@@ -66,7 +68,7 @@ public class DeerBehavior : MonoBehaviour
         {
             rb.velocity = Vector3.up * jumpForce;
             AudioManager.instance.Play("Jump");
-            yield return new WaitForSeconds(0.5f); // wait for half a second
+            yield return new WaitForSeconds(waitTime); // wait for half a second
         }
 
         IEnumerator fall()
@@ -74,7 +76,7 @@ public class DeerBehavior : MonoBehaviour
 
             rb.velocity = Vector3.down * jumpForce;
             AudioManager.instance.Play("Down");
-            yield return new WaitForSeconds(0.5f); // wait for half a second
+            yield return new WaitForSeconds(waitTime); // wait for half a second
         }
         // force the deer to be at the same z and x position
         transform.position = new Vector3(0, transform.position.y, 0);
@@ -114,3 +116,4 @@ public class DeerBehavior : MonoBehaviour
         }
     }
 }
+// this code was written by me with the help of copilot.

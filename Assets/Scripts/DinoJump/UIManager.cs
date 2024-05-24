@@ -45,3 +45,4 @@ public class UIManager : MonoBehaviour
         }
     }
 }
+// this code was written with the help of copilot.
