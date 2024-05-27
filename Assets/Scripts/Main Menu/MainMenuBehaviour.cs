@@ -46,16 +46,16 @@ public class MainMenuBehaviour : MonoBehaviour
             var image = ge.GetComponent<Image>();
             var tempColor = image.color;
             tempColor.a = 1f;
-            image.color = tempColor;
+            image.color = tempColor;//set alpha to 1
 
             if(gameElement.icon != null)
             {
-                image.sprite = gameElement.icon;
+                image.sprite = gameElement.icon;//set the icon
             }
             
-            ge.GetComponent<Button>().onClick.AddListener(() =>
+            ge.GetComponent<Button>().onClick.AddListener(() => //using a lambda expression to pass the scene name since normal listeners don't allow parameters
             {
-                PlaySelected(gameElement.sceneName);
+                PlaySelected(gameElement.sceneName);//add correct listener to the button
             });
         }
     }
