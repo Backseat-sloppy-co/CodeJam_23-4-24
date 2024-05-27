@@ -13,6 +13,7 @@ class Target
     public bool isTarget;
 
     // this constructor is used to set the target gameobject and set the isTarget bool to false
+
     public Target(GameObject target)
     {
         this.target = target;
@@ -39,7 +40,7 @@ public class TargetBehavior : MonoBehaviour
         // for as many as the count variable, instantiate a prefab at a location from the targetLocation list and add it to the targets list
         for (int i = 0; i < count; i++)
         {
-            
+            // here we instantiate the prefab at the location from the targetLocation list
             GameObject target = Instantiate(prefab, targetLocation[i]);
            
             target.transform.parent = transform;
@@ -67,6 +68,7 @@ public class TargetBehavior : MonoBehaviour
         {
             StartCoroutine(Shoot());
             RaycastHit hit;
+            // this ray is casted from 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Debug.Log("Mouse is clicked");
             Destroy(tryk);
@@ -78,9 +80,10 @@ public class TargetBehavior : MonoBehaviour
                 {
                     AudioManager.instance.Play("Hitmarker");
                     Debug.Log("Target is clicked");
+                    // this foreach loop goes through all the targets in the targets list and checks if the target that is hit is the target that is currently set
                     foreach (var target in targets)
                     {
-                        // 
+                        
                         if (target.target == hit.collider.gameObject)
                         {
                            Animator anim = target.target.GetComponent<Animator>();
