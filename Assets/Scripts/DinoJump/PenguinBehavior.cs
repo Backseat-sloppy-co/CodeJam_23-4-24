@@ -23,3 +23,4 @@ public class PenguinBehavior : MonoBehaviour
         transform.Rotate(Vector3.up * penguinRotaionSpeed * Time.deltaTime);
     }
 }
+// this code was written with the help of copilot.
