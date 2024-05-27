@@ -25,6 +25,7 @@ public class DeerBehavior : MonoBehaviour
 
     private float waitTime = 0.5f;
 
+    private bool isJumping = false;
 
 
     void Start()
@@ -38,7 +39,7 @@ public class DeerBehavior : MonoBehaviour
     }
 
     void Update()
-    {
+    { // check if the deer is grounded
         if (Physics.CheckCapsule(col.bounds.min, col.bounds.max, col.radius, LayerMask.GetMask("Ground")))
         {
             isGrounded = true;
@@ -47,7 +48,7 @@ public class DeerBehavior : MonoBehaviour
         {
             isGrounded = false;
         }
-        if (isGrounded)
+        if (isGrounded) // if the deer is grounded then it can jump
         {
             if (Input.touchCount > 0)
                StartCoroutine(jump());
@@ -55,7 +56,7 @@ public class DeerBehavior : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             StartCoroutine(jump());
         }
-        else
+        else // if the deer is not grounded then it can fall
         {
             if (Input.touchCount > 0)
                 StartCoroutine(fall());
@@ -64,20 +65,7 @@ public class DeerBehavior : MonoBehaviour
                 StartCoroutine(fall());
         }
 
-        IEnumerator jump()
-        {
-            rb.velocity = Vector3.up * jumpForce;
-            AudioManager.instance.Play("Jump");
-            yield return new WaitForSeconds(waitTime); // wait for half a second
-        }
-
-        IEnumerator fall()
-        {
-
-            rb.velocity = Vector3.down * jumpForce;
-            AudioManager.instance.Play("Down");
-            yield return new WaitForSeconds(waitTime); // wait for half a second
-        }
+    
         // force the deer to be at the same z and x position
         transform.position = new Vector3(0, transform.position.y, 0);
         transform.rotation = rotation;
@@ -88,13 +76,30 @@ public class DeerBehavior : MonoBehaviour
             Debug.Log("Game Over!");
 
             isGameOverStarted = true;
-
+            // using the singelton to start the coroutine in the game manager to load the next scene
             GameManager.instance.StartCoroutine(GameManager.instance.NextRandomScene(nextSceneTime));
-
-
 
         }
 
+    }
+    IEnumerator jump()
+    {
+        isJumping = true;
+        rb.velocity = Vector3.up * jumpForce;
+        AudioManager.instance.Play("Jump");
+        yield return new WaitForSeconds(waitTime); // wait for half a second
+        isJumping = false;
+    }
+   
+
+    IEnumerator fall()
+    {
+        if (!isJumping)
+        {
+            rb.velocity = Vector3.down * jumpForce;
+            AudioManager.instance.Play("Down");
+            yield break;
+        }
     }
     void OnCollisionEnter(Collision collision)
     {

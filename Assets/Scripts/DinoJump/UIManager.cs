@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public Image[] lifeIcons;
     private float intTime;
     public TMPro.TextMeshProUGUI text;
-    public float handIconTime = 2.5f;
+    private float handIconTime = 2.5f;
     public Image handIcon;
 
     void Start()
